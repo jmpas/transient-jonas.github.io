@@ -6,13 +6,18 @@
   "author": "nipher",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.15.4",
+    "isomorphic-fetch": "^2.2.1",
     "next": "beta",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "remarkable": "^1.7.1",
+    "remarkable-meta": "^1.0.1"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export"
   }
 }
