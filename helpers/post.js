@@ -6,11 +6,21 @@ const Remarkable = require('remarkable')
 
 const readFile = promisify(fs.readFile)
 const readdir = promisify(fs.readdir)
+const access = promisify(fs.access)
 
 const md = new Remarkable()
 md.use(mdMeta)
 
 const postsPath = 'posts/'
+
+exports.exists = async function exists (postName) {
+  try {
+    await access(path.resolve(postsPath, `${postName}.md`))
+    return true
+  } catch(err) {
+    return false
+  }
+}
 
 exports.getPostList = async function getPostList () {
   const posts = await readdir(postsPath)
@@ -18,8 +28,7 @@ exports.getPostList = async function getPostList () {
 }
 
 exports.getPostListSync = function getPostListSync () {
-  const posts = s.readdirSync(postsPath)
-  console.log(posts)
+  const posts = fs.readdirSync(postsPath)
   return posts.map(post => post.replace(/.md$/, ''))
 }
 

@@ -5,18 +5,28 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const { getMarkdownFrom } = require('./helpers/post')
+const { getMarkdownFrom, exists } = require('./helpers/post')
 
 app.prepare()
   .then(() => {
     const server = express()
 
-    server.get('/:slug', async (req, res) => {
-      const actualPage = '/post'
+    server.get('/api/post/:slug', async (req, res) => {
       const { slug } = req.params
-      const { post, metaData } = await getMarkdownFrom(slug)
-      const queryParams = { slug, post, metaData }
-      app.render(req, res, actualPage, queryParams)
+      const postData = await getMarkdownFrom(slug)
+
+      res.json(postData)
+    })
+
+    server.get('/:slug', async (req, res) => {
+      const { slug } = req.params
+
+      if (!(await exists(slug))) return handle(req, res)
+
+      const actualPage = '/post'
+      const postData = await getMarkdownFrom(slug)
+
+      app.render(req, res, actualPage, postData)
     })
 
     server.get('*', (req, res) => {

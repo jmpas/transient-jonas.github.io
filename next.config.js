@@ -1,26 +1,25 @@
-const fs = require('fs')
-const { getMarkdownFromSync } = require('./helpers/post')
+const { getPostListSync, getMarkdownFromSync } = require('./helpers/post')
 
 module.exports = {
   exportPathMap () {
-    const postList = fs.readdirSync('./posts').map(name => name.replace(/\.md$/, ''))
+    const postList = getPostListSync()
 
-    const pages = postList.reduce((pages, post) => {
-      const { post: body , metaData } = getMarkdownFromSync(post)
-      const queryParams = { post, post: body, metaData }
+    const posts = postList.reduce((pages, post) => {
+      const postData = getMarkdownFromSync(post)
 
       return Object.assign({}, pages, {
         [`/${post}`]: {
           page: '/post',
-          query: queryParams
+          query: postData
         }
       })
     }, {})
 
-    console.log(pages, postList)
-    // combine the map of post pages with the home
-    return Object.assign({}, pages, {
+    const pages = {
       '/': { page: '/' }
-    })
+    }
+
+    // combine the map of post pages with landing pages
+    return Object.assign({}, posts, pages)
   }
 }

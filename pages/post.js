@@ -10,7 +10,6 @@ export default class extends Component {
 
   render () {
     const { post, metaData } = this.props
-    console.log(post, metaData)
     const { title, description, date } = metaData
 
     return (
