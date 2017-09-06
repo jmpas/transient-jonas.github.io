@@ -1,0 +1,33 @@
+import Post from '../components/post'
+import Page from '../layouts/main'
+import fetch from 'isomorphic-fetch'
+
+const PostPage = ({ post, metaData } = props) => (
+  <Page meta={metaData}>
+    <Post title={metaData.title} description={metaData.description || ''}
+          date={metaData.date}
+          body={post} />
+  </Page>
+)
+
+PostPage.getInitialProps = async ({ query, req, build }) => {
+  if (req) {
+    return query
+  } else if (build) {
+    console.log(build)
+    console.log(query)
+    console.log(arguments)
+    return {}
+  } else {
+    const res = await fetch(location.href)
+    const html = await res.text()
+    const el = document.createElement('html')
+    el.innerHTML = html
+    el.getElementsByTagName('meta')
+    debugger
+    return {}
+  }
+}
+
+export default PostPage
+

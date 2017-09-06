@@ -1,5 +1,10 @@
 const express = require('express')
 const next = require('next')
+const { promisify } = require('util')
+const fs = require('fs')
+const path = require('path')
+
+const readFile = promisify(fs.readFile)
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -12,10 +17,14 @@ app.prepare()
     const server = express()
 
     server.get('/api/post/:slug', async (req, res) => {
-      const { slug } = req.params
+      const { slug: fileName } = req.params
+      const slug = fileName.replace('.json', '')
+
+      if (!(await exists(slug))) return handle(req, res)
+
       const postData = await getMarkdownFrom(slug)
 
-      res.json(postData)
+      return res.json(postData)
     })
 
     server.get('/:slug', async (req, res) => {
@@ -26,7 +35,7 @@ app.prepare()
       const actualPage = '/post'
       const postData = await getMarkdownFrom(slug)
 
-      app.render(req, res, actualPage, postData)
+      return app.render(req, res, actualPage, postData)
     })
 
     server.get('*', (req, res) => {

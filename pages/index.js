@@ -7,6 +7,7 @@ const metaData = {
 }
 
 const articles = [{
+  slug: 'test-post',
   title: 'Test',
   date: '08/03/1994',
   description: 'A fake post for testing purpose.',

@@ -1,22 +1,25 @@
-import { Component } from 'react'
-
 import Post from '../components/post'
 import Page from '../layouts/main'
 
-export default class extends Component {
-  static async getInitialProps ({ query }) {
+const PostPage = ({ post, metaData } = props) => (
+  <Page meta={metaData}>
+    <Post title={metaData.title} description={metaData.description || ''}
+          date={metaData.date}
+          body={post} />
+  </Page>
+)
+
+PostPage.getInitialProps = async ({ query, req }) => {
+  if (req) {
     return query
-  }
-
-  render () {
-    const { post, metaData } = this.props
-    const { title, description, date } = metaData
-
-    return (
-      <Page meta={metaData}>
-        <Post title={metaData.title} description={description || ''} date={date} body={post} />
-      </Page>
-    )
+  } else {
+    const fetch = await import('isomorphic-fetch')
+    const postEndpoint = `${location.origin}/api/post/${query.slug}.json`
+    const res = await fetch(postEndpoint)
+    const { post, metaData } = await res.json()
+    return { post , metaData }
   }
 }
+
+export default PostPage
 
