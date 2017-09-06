@@ -1,20 +1,25 @@
 const express = require('express')
 const next = require('next')
-const { promisify } = require('util')
-const fs = require('fs')
-const path = require('path')
-
-const readFile = promisify(fs.readFile)
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const { getMarkdownFrom, exists } = require('./helpers/post')
+const { getMarkdownFrom, getPostList, exists } = require('./helpers/post')
 
 app.prepare()
   .then(() => {
     const server = express()
+
+    server.get('/api/posts.json', async (req, res) => {
+      const posts = await getPostList()
+      const promises = posts.map(async post => {
+        const { metaData, slug } = await getMarkdownFrom(post)
+        return { slug, ...metaData }
+      })
+      const postsData = await Promise.all(promises)
+      res.json({ posts: postsData })
+    })
 
     server.get('/api/post/:slug', async (req, res) => {
       const { slug: fileName } = req.params
@@ -23,7 +28,6 @@ app.prepare()
       if (!(await exists(slug))) return handle(req, res)
 
       const postData = await getMarkdownFrom(slug)
-
       return res.json(postData)
     })
 
@@ -33,9 +37,7 @@ app.prepare()
       if (!(await exists(slug))) return handle(req, res)
 
       const actualPage = '/post'
-      const postData = await getMarkdownFrom(slug)
-
-      return app.render(req, res, actualPage, postData)
+      return app.render(req, res, actualPage, { slug })
     })
 
     server.get('*', (req, res) => {

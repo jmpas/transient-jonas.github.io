@@ -35,7 +35,7 @@ exports.getPostListSync = function getPostListSync () {
 exports.getMarkdownFromSync = function getMarkdownFromSync (postName) {
   const file = fs.readFileSync(path.resolve(postsPath, `${postName}.md`))
   const post = md.render(file.toString())
-  return { post, metaData: md.meta }
+  return { post, metaData: md.meta, slug: postName }
 }
 
 exports.getMarkdownFrom = async function getMarkdownFrom (postName) {
