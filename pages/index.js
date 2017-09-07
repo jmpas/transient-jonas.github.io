@@ -1,5 +1,5 @@
 import Page from '../layouts/main'
-import ArticleItem from '../components/article-item'
+import PostItem from '../components/post-item'
 
 const metaData = {
   title: 'Nipher',
@@ -10,14 +10,14 @@ const Index = ({ posts } = props) => (
   <Page meta={metaData}>
     <h1>My name is Jonas</h1>
     <section>
-      <h2>Articles</h2>
-      <ul>{ posts.map((post, idx) => <ArticleItem {...post} key={idx} />) }</ul>
+      <h2>Blog posts</h2>
+      <ul>{ posts.map((post, idx) => <PostItem {...post} key={idx} />) }</ul>
     </section>
   </Page>
 )
 
 Index.getInitialProps = async ({ query, req }) => {
-	if (query.build) return query
+	if (query.build && typeof window === 'undefined') return query
 
   const postEndpoint = `/api/posts.json`
   const fetch = await import('isomorphic-fetch')
@@ -29,8 +29,7 @@ Index.getInitialProps = async ({ query, req }) => {
     res = await fetch(`${location.origin}${postEndpoint}`)
   }
 
-  const { posts } = await res.json()
-  return { posts }
+  return await res.json()
 }
 
 export default Index

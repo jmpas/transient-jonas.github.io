@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-const Article = ({ title, date, description, slug } = props) => (
-  <Link as={`/${slug}`} href={`/post?slug=${slug}`}>
+const PostItem = ({ title, date, description, slug } = props) => (
+  <Link prefetch as={`/${slug}`} href={`/post?slug=${slug}`}>
     <a>
       <li>
         <h3>{title}</h3>
@@ -12,4 +12,4 @@ const Article = ({ title, date, description, slug } = props) => (
   </Link>
 )
 
-export default Article
+export default PostItem

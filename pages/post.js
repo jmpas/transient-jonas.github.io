@@ -10,7 +10,7 @@ const PostPage = ({ post, metaData } = props) => (
 )
 
 PostPage.getInitialProps = async ({ query, req }) => {
-	if (query.build) return query
+	if (query.build && typeof window === 'undefined') return query
 
   const postEndpoint = `/api/post/${query.slug}.json`
   const fetch = await import('isomorphic-fetch')
@@ -22,8 +22,7 @@ PostPage.getInitialProps = async ({ query, req }) => {
     res = await fetch(`${location.origin}${postEndpoint}`)
   }
 
-  const { post, metaData } = await res.json()
-  return { post , metaData }
+  return await res.json()
 }
 
 export default PostPage
