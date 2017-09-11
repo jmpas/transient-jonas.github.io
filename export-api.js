@@ -1,24 +1,43 @@
 const { getPostList, getMarkdownFrom } = require('./helpers/post')
-const fs = require('fs')
-const { promisify } = require('util')
+const { createWriteStream } = require('fs')
 
-const writeFile = promisify(fs.writeFile)
-
-const postsDataPromise = getPostList().then(posts => Promise.all(posts.map(post => getMarkdownFrom(post))))
-
-function exportPostApi () {
-  const promises = postsDataPromise
-    .then(postsData => Promise.all(postsData.map(data => writeFile(`./out/api/post/${data.slug}.json`, JSON.stringify(data)))))
-    .then(() => console.log('API endpoint exported: /api/post/<slug>.json'))
+async function getPostsData () {
+  const postList = await getPostList()
+  return postList.map(post => getMarkdownFrom(post))
 }
 
-function exportPostsApi () {
-  const promises = postsDataPromise
-    .then(postsData => Promise.all(postsData.map(({ metaData, slug } = data) => Object.assign({}, { slug }, metaData))))
-    .then(postsData => writeFile('./out/api/posts.json', JSON.stringify({ posts: postsData })))
-    .then(() => console.log('API endpoint exported: /api/posts.json'))
+async function exportPostApi () {
+  const postsData = await getPostsData()
+
+  const promises = postsData.map(async data => {
+    const post = await data
+    const ws = createWriteStream(`./out/api/post/${post.slug}.json`)
+    ws.write(JSON.stringify(post))
+    ws.end()
+  })
+
+  await Promise.all(promises)
 }
 
-exportPostApi()
-exportPostsApi()
+async function exportPostsApi () {
+  const ws = createWriteStream(`./out/api/posts.json`)
+  const postsData = await getPostsData()
+
+  ws.write('{ posts: [')
+
+  const promises = postsData
+    .map(async data => {
+      const { slug, metaData } = await data
+      return Object.assign({}, { slug }, metaData)
+    })
+    .map(async post => ws.write(`${JSON.stringify(await post)},`))
+
+	await Promise.all(promises)
+
+  ws.write('] }')
+  ws.end()
+}
+
+exportPostApi().then(() => console.log('API endpoint exported: /api/post/<slug>.json'))
+exportPostsApi().then(() => console.log('API endpoint exported: /api/posts.json'))
 
