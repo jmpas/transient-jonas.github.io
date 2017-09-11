@@ -3,12 +3,28 @@ const fs = require('fs')
 const path = require('path')
 const mdMeta = require('remarkable-meta')
 const Remarkable = require('remarkable')
+const hljs = require('highlight.js')
 
 const readFile = promisify(fs.readFile)
 const readdir = promisify(fs.readdir)
 const access = promisify(fs.access)
 
-const md = new Remarkable()
+const md = new Remarkable({
+  html: true,
+  highlight (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, str).value;
+      } catch (err) {}
+    }
+
+    try {
+      return hljs.highlightAuto(str).value;
+    } catch (err) {}
+
+    return ''; // use external default escaping
+  }
+})
 md.use(mdMeta)
 
 const postsPath = 'posts/'
