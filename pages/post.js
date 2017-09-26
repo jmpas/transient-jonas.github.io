@@ -1,10 +1,12 @@
 import Post from '../components/post'
 import Page from '../layouts/main'
 
-const PostPage = ({ post, metaData } = props) => (
+const PostPage = ({ post, metaData, date }) => (
   <Page meta={metaData}>
-    <Post title={metaData.title} description={metaData.description || ''}
+    <Post title={metaData.title}
+          description={metaData.description}
           date={metaData.date}
+          formattedDate={date}
           body={post} />
   </Page>
 )

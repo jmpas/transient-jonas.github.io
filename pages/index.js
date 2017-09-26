@@ -6,7 +6,7 @@ const metaData = {
   description: 'Developer, Amateur photographer, dreamer'
 }
 
-const Index = ({ posts } = props) => (
+const Index = ({ posts }) => (
   <Page meta={metaData}>
     <h1>My name is Jonas</h1>
     <section>

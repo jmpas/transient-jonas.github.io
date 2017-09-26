@@ -1,9 +1,11 @@
-import Meta from '../components/meta'
+import Head from '../components/head'
+import Logo from '../components/logo'
 
-export default (props) => (
+export default ({meta, children}) => (
   <div>
-    <Meta {...props.meta} />
-    {props.children}
+    <Head {...meta} />
+    <Logo />
+    {children}
   </div>
 )
 

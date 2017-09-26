@@ -5,7 +5,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const { getMarkdownFrom, getPostList, exists } = require('./helpers/post')
+const { getMarkdownFrom, getPostList, exists, sortPosts, formatDate } = require('./helpers/post')
 
 app.prepare()
   .then(() => {
@@ -13,12 +13,20 @@ app.prepare()
 
     server.get('/api/posts.json', async (req, res) => {
       const posts = await getPostList()
-      const promises = posts.map(async post => {
-        const { metaData, slug } = await getMarkdownFrom(post)
-        return { slug, ...metaData }
-      })
+
+      const promises = posts
+        .map(async post => {
+          const { metaData, slug } = await getMarkdownFrom(post)
+
+          return {
+            slug,
+            formattedDate: formatDate(metaData.date),
+            ...metaData
+          }
+        })
+
       const postsData = await Promise.all(promises)
-      res.json({ posts: postsData })
+      res.json({ posts: sortPosts(postsData) })
     })
 
     server.get('/api/post/:slug', async (req, res) => {
@@ -28,7 +36,10 @@ app.prepare()
       if (!(await exists(slug))) return handle(req, res)
 
       const postData = await getMarkdownFrom(slug)
-      return res.json(postData)
+      return res.json({
+        date: formatDate(postData.metaData.date),
+        ...postData
+      })
     })
 
     server.get('/:slug', async (req, res) => {

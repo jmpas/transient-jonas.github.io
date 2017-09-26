@@ -1,4 +1,4 @@
-const { getPostList, getMarkdownFrom } = require('./helpers/post')
+const { getPostList, getMarkdownFrom, formatDate, sortPosts } = require('./helpers/post')
 const { createWriteStream } = require('fs')
 
 async function getPostsData () {
@@ -12,7 +12,7 @@ async function exportPostApi () {
   const promises = postsData.map(async data => {
     const post = await data
     const ws = createWriteStream(`./out/api/post/${post.slug}.json`)
-    ws.write(JSON.stringify(post))
+    ws.write(JSON.stringify({ ...post, date: formatDate(post.metaData.date) }))
     ws.end()
   })
 
@@ -23,14 +23,14 @@ async function exportPostsApi () {
   const ws = createWriteStream(`./out/api/posts.json`)
   const postsData = await getPostsData()
 
-  ws.write('{ posts: [')
+  ws.write('{ "posts": [')
 
-  const promises = postsData
+  const promises = sortPosts(postsData)
     .map(async data => {
       const { slug, metaData } = await data
-      return Object.assign({}, { slug }, metaData)
+      return { formattedDate: formatDate(metaData.date), slug, ...metaData }
     })
-    .map(async post => ws.write(`${JSON.stringify(await post)},`))
+    .map(async (post, index) => ws.write(`${index === 0 ? '' : ','}${JSON.stringify(await post)}`))
 
 	await Promise.all(promises)
 

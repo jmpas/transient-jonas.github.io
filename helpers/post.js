@@ -9,6 +9,9 @@ const readFile = promisify(fs.readFile)
 const readdir = promisify(fs.readdir)
 const access = promisify(fs.access)
 
+const format = require('date-fns/format')
+const compareDesc = require('date-fns/compare_desc')
+
 const md = new Remarkable({
   html: true,
   highlight (str, lang) {
@@ -36,6 +39,14 @@ exports.exists = async function exists (postName) {
   } catch(err) {
     return false
   }
+}
+
+exports.sortPosts = function sortPosts (posts) {
+  return posts.sort((post1, post2) => compareDesc(new Date(post1.date), new Date(post2.date)))
+}
+
+exports.formatDate = function formatDate (date) {
+  return format(date, 'DD MMM YYYY')
 }
 
 exports.getPostList = async function getPostList () {

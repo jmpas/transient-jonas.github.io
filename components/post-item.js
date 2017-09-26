@@ -1,12 +1,11 @@
 import Link from 'next/link'
 
-const PostItem = ({ title, date, description, slug } = props) => (
+const PostItem = ({ title, formattedDate, description, slug }) => (
   <Link prefetch as={`/${slug}`} href={`/post?slug=${slug}`}>
     <a>
       <li>
         <h3>{title}</h3>
-        <p>{description}</p>
-        <span>{date}</span>
+        <span>{formattedDate}</span>
       </li>
     </a>
   </Link>

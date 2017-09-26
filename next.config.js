@@ -1,4 +1,4 @@
-const { getPostListSync, getMarkdownFromSync } = require('./helpers/post')
+const { getPostListSync, getMarkdownFromSync, formatDate, sortPosts } = require('./helpers/post')
 
 module.exports = {
   exportPathMap () {
@@ -6,25 +6,28 @@ module.exports = {
     const postsData = postList.map(post => getMarkdownFromSync(post))
 
     const posts = postsData.reduce((pages, postData) => {
-      return Object.assign({}, pages, {
+      return {
+        ...pages,
         [`/${postData.slug}`]: {
           page: '/post',
-          query: Object.assign({}, postData, { build: true })
+          query: { ...postData, date: formatDate(postData.metaData.date), build: true }
         }
-      })
+      }
     }, {})
 
     const postsMetaData = postsData
-      .map(({ metaData, slug } = postData) => Object.assign({}, { slug }, metaData))
+      .map(({ metaData, slug }) => (
+        { formattedDate: formatDate(metaData.date), slug, ...metaData }
+      ))
 
     const pages = {
       '/': {
         page: '/',
-        query: Object.assign({}, { posts: postsMetaData }, { build: true })
+        query: { posts: sortPosts(postsMetaData), build: true }
       }
     }
 
     // combine the map of post pages with landing pages
-    return Object.assign({}, posts, pages)
+    return { ...posts, ...pages }
   }
 }
