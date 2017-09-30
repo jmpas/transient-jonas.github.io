@@ -1,9 +1,9 @@
-const { getPostListSync, getMarkdownFromSync, formatDate, sortPosts } = require('./helpers/post')
+const { getPostList, getMarkdownFrom, formatDate, sortPosts } = require('./helpers/post')
 
 module.exports = {
-  exportPathMap () {
-    const postList = getPostListSync()
-    const postsData = postList.map(post => getMarkdownFromSync(post))
+  async exportPathMap () {
+    const postList = await getPostList()
+    const postsData = await Promise.all(postList.map(post => getMarkdownFrom(post)))
 
     const posts = postsData.reduce((pages, postData) => {
       return {
