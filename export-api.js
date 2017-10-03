@@ -1,43 +1,47 @@
-const { getPostList, getMarkdownFrom, formatDate, sortPosts } = require('./helpers/post')
-const { createWriteStream } = require('fs')
+const { writeFile } = require('fs')
+const { promisify } = require('util');
+const fetch = require('isomorphic-fetch')
+const { spawn } = require('child_process')
+spawn('mkdir', ['-p', 'out/api/post'])
 
-async function getPostsData () {
-  const postList = await getPostList()
-  return postList.map(post => getMarkdownFrom(post))
+const { getPostList, getMarkdownFrom, formatDate, sortPosts } = require('./helpers/post')
+const write = promisify(writeFile)
+
+let postsList = null
+let server = null
+
+async function getPostsList () {
+  if (postsList) return postsList
+
+  try {
+    const res = await fetch('http://localhost:3000/api/posts.json')
+    return postsList = (await res.json()).posts
+  } catch (err) {
+    console.error('Make sure to have the backend running on localhost:3000')
+    process.exit(1)
+  }
 }
 
 async function exportPostApi () {
-  const postsData = await getPostsData()
+  const postsList = await getPostsList()
 
-  const promises = postsData.map(async data => {
-    const post = await data
-    const ws = createWriteStream(`./out/api/post/${post.slug}.json`)
-    ws.write(JSON.stringify({ ...post, date: formatDate(post.metaData.date) }))
-    ws.end()
+  const promises = postsList.map(async ({ slug }) => {
+    const res = await fetch(`http://localhost:3000/api/post/${slug}`)
+    const post = await res.text()
+
+    await write(`./out/api/post/${slug}.json`, post)
   })
 
-  await Promise.all(promises)
+  return Promise.all(promises)
 }
 
 async function exportPostsApi () {
-  const ws = createWriteStream(`./out/api/posts.json`)
-  const postsData = await getPostsData()
-
-  ws.write('{ "posts": [')
-
-  const promises = sortPosts(postsData)
-    .map(async data => {
-      const { slug, metaData } = await data
-      return { formattedDate: formatDate(metaData.date), slug, ...metaData }
-    })
-    .map(async (post, index) => ws.write(`${index === 0 ? '' : ','}${JSON.stringify(await post)}`))
-
-	await Promise.all(promises)
-
-  ws.write('] }')
-  ws.end()
+  const postsList = await getPostsList()
+  await write(`./out/api/posts.json`, JSON.stringify({ posts: postsList }))
 }
 
-exportPostApi().then(() => console.log('API endpoint exported: /api/post/<slug>.json'))
-exportPostsApi().then(() => console.log('API endpoint exported: /api/posts.json'))
+module.exports = Promise.all([
+  exportPostApi().then(() => console.log('API endpoint exported: /api/post/<slug>.json')),
+  exportPostsApi().then(() => console.log('API endpoint exported: /api/posts.json'))
+])
 

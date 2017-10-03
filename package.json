@@ -20,6 +20,6 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "next start",
-    "export": "next export && mkdir -p out/api/post && node export-api.js"
+    "export": "next export"
   }
 }

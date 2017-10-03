@@ -7,7 +7,7 @@ const handle = app.getRequestHandler()
 
 const { getMarkdownFrom, getPostList, exists, sortPosts, formatDate } = require('./helpers/post')
 
-app.prepare()
+module.exports = app.prepare()
   .then(() => {
     const server = express()
 
@@ -59,8 +59,11 @@ app.prepare()
       if (err) throw err
       console.log('> Ready on http://localhost:3000')
     })
+
+    return server
   })
   .catch((ex) => {
     console.error(ex.stack)
     process.exit(1)
   })
+

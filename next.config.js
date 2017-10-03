@@ -2,28 +2,25 @@ const { getPostList, getMarkdownFrom, formatDate, sortPosts } = require('./helpe
 
 module.exports = {
   async exportPathMap () {
-    const postList = await getPostList()
-    const postsData = await Promise.all(postList.map(post => getMarkdownFrom(post)))
+    await require('./export-api')
+    const { posts: postsList } = require('./out/api/posts')
 
-    const posts = postsData.reduce((pages, postData) => {
+    const posts = postsList.reduce((pages, data) => {
+      const post = require(`./out/api/post/${data.slug}`)
+
       return {
         ...pages,
-        [`/${postData.slug}`]: {
+        [`/${data.slug}`]: {
           page: '/post',
-          query: { ...postData, date: formatDate(postData.metaData.date), build: true }
+          query: { ...post, build: true }
         }
       }
     }, {})
 
-    const postsMetaData = postsData
-      .map(({ metaData, slug }) => (
-        { formattedDate: formatDate(metaData.date), slug, ...metaData }
-      ))
-
     const pages = {
       '/': {
         page: '/',
-        query: { posts: sortPosts(postsMetaData), build: true }
+        query: { posts: postsList, build: true }
       }
     }
 
