@@ -2,6 +2,9 @@
 layout: post
 title:  "There and back again"
 date:   2016-03-26 23:58:43 -0300
+language: Brazilian Portugese
+excerpt: |
+  Depois de uns amigos falando "Jonas, faz um blog!", aqui estou, escrevendo um post que ninguém vai ler (talvez meus amigos)
 ---
 
 Fala galera!

@@ -3,6 +3,11 @@ layout: post
 title: "Mudanças"
 description: "Novidades e novas experiências de vida"
 date: 2016-05-17 13:23:43 -0300
+language: Brazilian Portugese
+excerpt: |
+  Este post não é pra falar nada específico de alguma tecnologia ou algo do tipo. 
+
+  Ele é apenas para compartilhar um pouco sobre o que ta rolando na minha vida, uma experiência nova que estou tendo.
 tags:
 - life
 - experience

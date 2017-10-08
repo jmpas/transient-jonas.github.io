@@ -3,6 +3,18 @@ layout: post
 title: "ES6 - Default Parameters"
 description: "Entenda parâmetros predefinidos em javascript com a nova sintaxe do es6."
 date: 2016-04-21 11:25:43 -0300
+language: Brazilian Portugese
+excerpt: |
+  Continuando a série "ES6 - O que mudou?".
+
+  Esse post será sobre definir valores predefinidos para parâmetros de uma função com ES6.
+
+  Lista dos tópicos que irei abordar:
+
+  - Descrição
+  - Old way
+  - Sintaxe ES6
+  - Exemplos
 tags:
 - es6
 - js

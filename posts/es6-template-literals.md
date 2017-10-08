@@ -3,6 +3,9 @@ layout: post
 title: "ES6 - Template Literals"
 description: "Veja o que são ES6 template literals e as melhorias que trazem para o javascript."
 date: 2016-05-01 20:23:43 -0300
+language: Brazilian Portugese
+excerpt: |
+  Falarei sobre Template Literals, algo bem simples que é incrívelmente maneiro, acredito que assim como eu, vários devs de JS adoraram essa adição a linguagem.
 tags:
 - es6
 - js

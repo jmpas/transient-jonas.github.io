@@ -3,6 +3,16 @@ layout: post
 title: "ES6 - Arrow Functions"
 description: "Entenda ES6 arrow functions e sua diferença para a função padrão do javascript."
 date: 2016-03-31 00:40:43 -0300
+language: Brazilian Portugese
+excerpt: |
+  E ai galera, continuando a série "ES6 - O que mudou?", irei abordar nesse post, uma nova maneira de declarar funções anônimas em javascript.
+
+  O objetivo é ser um post curto, explicativo e com bastante exemplos.
+
+  Lista dos tópicos que irei abordar:
+
+  - Sintaxe
+  - Lexical this
 tags:
 - es6
 - js

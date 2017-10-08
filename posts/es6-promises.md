@@ -3,6 +3,20 @@ layout: post
 title: "ES6 - Promises"
 description: "Entenda ES6 promises e suas vantagens em operações assíncronas no javascript."
 date: 2016-04-08 18:40:43 -0300
+language: Brazilian Portugese
+excerpt: |
+  Esse post será sobre promises
+
+  Lista dos tópicos que irei abordar:
+
+  - O que é uma Promise?
+  - States
+  - Constructor
+  - Instance Methods
+  - Static Methods
+  - Chaining
+  - Error handling
+  - Parallelism and sequencing
 tags:
 - es6
 - js
