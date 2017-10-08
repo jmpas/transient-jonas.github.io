@@ -1,63 +1,118 @@
 import Link from 'next/link'
 
+function shimmeringAnimation () {
+  let animations = ``
+
+  for (let i = 1, n = 12; i <= n; i++) {
+    animations += `
+.polygon-${ i }::before {
+  animation-delay: ${ i * .05 + .025 }s;
+  animation-duration: 1.7s;
+  animation-name: shimmer;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}\r\n`
+  }
+
+  return animations
+}
+
 export default () => (
   <Link href='/'>
     <a>
-      <svg width="60px" height="60px" viewBox="0 0 300 300" version="1.1">
-        <defs></defs>
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g id="Group" transform="translate(-50.000000, -50.000000)" fill="#000000">
-            <polygon id="Triangle"
-                     transform="translate(324.999760, 74.999760) scale(-1, 1) rotate(-45.000000) translate(-324.999760, -74.999760) "
-                     points="324.99976 39.6447604 395.710438 110.354759 254.289082 110.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(124.999760, 74.999760) scale(-1, 1) rotate(-45.000000) translate(-124.999760, -74.999760) "
-  									 points="124.99976 39.6447604 195.710438 110.354759 54.2890818 110.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(224.999760, 174.999760) scale(-1, 1) rotate(-45.000000) translate(-224.999760, -174.999760) "
-                     points="224.99976 139.64476 295.710438 210.354759 154.289082 210.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(124.999760, 174.999760) scale(-1, 1) rotate(-45.000000) translate(-124.999760, -174.999760) "
-                     points="124.99976 139.64476 195.710438 210.354759 54.2890818 210.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(224.999760, 274.999760) scale(-1, 1) rotate(-45.000000) translate(-224.999760, -274.999760) "
-                     points="224.99976 239.64476 295.710438 310.354759 154.289082 310.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(324.999760, 274.999760) scale(-1, 1) rotate(-45.000000) translate(-324.999760, -274.999760) "
-                     points="324.99976 239.64476 395.710438 310.354759 254.289082 310.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(74.999760, 324.999760) scale(-1, 1) rotate(135.000000) translate(-74.999760, -324.999760) "
-  									 points="74.9997599 289.64476 145.710438 360.354759 4.28908181 360.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(174.999760, 224.999760) scale(-1, 1) rotate(135.000000) translate(-174.999760, -224.999760) "
-                     points="174.99976 189.64476 245.710438 260.354759 104.289082 260.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(274.999760, 224.999760) scale(-1, 1) rotate(135.000000) translate(-274.999760, -224.999760) "
-                     points="274.99976 189.64476 345.710438 260.354759 204.289082 260.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(174.999760, 124.999760) scale(-1, 1) rotate(135.000000) translate(-174.999760, -124.999760) "
-                     points="174.99976 89.6447604 245.710438 160.354759 104.289082 160.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(274.999760, 324.999760) scale(-1, 1) rotate(135.000000) translate(-274.999760, -324.999760) "
-                     points="274.99976 289.64476 345.710438 360.354759 204.289082 360.354759">
-            </polygon>
-            <polygon id="Triangle"
-                     transform="translate(74.999760, 124.999760) scale(-1, 1) rotate(135.000000) translate(-74.999760, -124.999760) "
-                     points="74.9997599 89.6447604 145.710438 160.354759 4.28908181 160.354759">
-            </polygon>
-          </g>
-        </g>
-      </svg>
+      <div className='logo'>
+        <div className='logo-piece polygon-1'></div>
+        <div className='logo-piece polygon-2'></div>
+        <div className='logo-piece polygon-3'></div>
+        <div className='logo-piece polygon-4'></div>
+        <div className='logo-piece polygon-5'></div>
+        <div className='logo-piece polygon-6'></div>
+        <div className='logo-piece polygon-7'></div>
+        <div className='logo-piece polygon-8'></div>
+        <div className='logo-piece polygon-9'></div>
+        <div className='logo-piece polygon-10'></div>
+        <div className='logo-piece polygon-11'></div>
+        <div className='logo-piece polygon-12'></div>
+        <style global jsx>{`
+          .logo {
+            position: relative;
+            height: 50px;
+            width: 50px;
+          }
+
+          .logo-piece {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            opacity: 1;
+            background: #333;
+          }
+
+          .logo-piece::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0); top: 0; left: 0;
+            position: absolute;
+          }
+
+          @keyframes shimmer {
+            0% { background-color: rgba(255,255,255,0); }
+            35% { background-color: rgba(255,255,255,.3); }
+            100% { background-color: rgba(255,255,255,0); }
+          }
+
+          ${ shimmeringAnimation() }
+
+          .polygon-1 {
+            -webkit-clip-path: polygon( 0% 0% ,33.3% 33.3% ,33.3% 0% );
+          }
+
+          .polygon-2 {
+            -webkit-clip-path: polygon( 0% 0% ,0% 33.3% ,33.3% 33.3% );
+          }
+
+          .polygon-3 {
+            -webkit-clip-path: polygon( 0% 33.3% ,33.3% 33.3% ,33.3% 66.6% );
+          }
+
+          .polygon-4 {
+            -webkit-clip-path: polygon( 33.3% 0% ,66.6% 33.3% ,33.3% 33.3% );
+          }
+
+          .polygon-5 {
+            -webkit-clip-path: polygon( 33.3% 33.3% ,66.6% 66.6% ,33.3% 66.6% );
+          }
+
+          .polygon-6 {
+            -webkit-clip-path: polygon( 33.3% 33.3% ,66.6% 66.6% ,66.6% 33.3% );
+          }
+
+          .polygon-7 {
+            -webkit-clip-path: polygon( 33.3% 66.6% ,66.6% 66.6% ,66.6% 100% );
+          }
+
+          .polygon-8 {
+            -webkit-clip-path: polygon( 66.6% 33.3% ,66.6% 66.6% , 100% 66.6%);
+          }
+
+          .polygon-9 {
+            -webkit-clip-path: polygon( 66.6% 66.6% ,66.6% 100%, 100% 100%);
+          }
+
+          .polygon-10 {
+            -webkit-clip-path: polygon( 66.6% 66.6% ,100% 66.6% , 100% 100%);
+          }
+
+          .polygon-11 {
+            -webkit-clip-path: polygon( 66.6% 0% ,100% 0%, 100% 33.3% );
+          }
+
+          .polygon-12 {
+            -webkit-clip-path: polygon( 0% 66.6% ,33.3% 100% , 0 100%);
+          }
+        `}</style>
+      </div>
     </a>
   </Link>
 )
