@@ -1,46 +1,157 @@
 import Link from 'next/link'
 
-function shimmeringAnimation () {
-  let animations = ``
+const structureManager = {
+  logo() {
+    return [
+      { pos: [[0, 0], [33.3, 33.3], [33.3, 0]], color: '#333', shrimmer: true },
+      { pos: [[0, 0], [0, 33.3], [33.3, 33.3]], color: '#333', shrimmer: true },
+      { pos: [[0, 33.3], [33.3, 33.3], [33.3, 66.6]], color: '#333', shrimmer: true },
+      { pos: [[33.3, 0], [66.6, 33.3], [33.3, 33.3]], color: '#333', shrimmer: true },
+      { pos: [[33.3, 33.3], [66.6, 66.6], [33.3, 66.6]], color: '#333', shrimmer: true },
+      { pos: [[33.3, 33.3], [66.6, 66.6], [66.6, 33.3]], color: '#333', shrimmer: true },
+      { pos: [[33.3, 66.6], [66.6, 66.6], [66.6, 100]], color: '#333', shrimmer: true },
+      { pos: [[66.6, 33.3], [66.6, 66.6], [100, 66.6]], color: '#333', shrimmer: true },
+      { pos: [[66.6, 66.6], [66.6, 100], [100, 100]], color: '#333', shrimmer: true },
+      { pos: [[66.6, 66.6], [100, 66.6], [100, 100]], color: '#333', shrimmer: true },
+      { pos: [[66.6, 0], [100, 0], [100, 33.3]], color: '#333', shrimmer: true },
+      { pos: [[0, 66.6], [33.3, 100], [0, 100]], color: '#333', shrimmer: true }
+    ]
+  },
+  photography() {
+    return [
+      { pos: [[-22, 70], [18, 40], [110, 90]], color: '#eaeaea', shrimmer: true }, // Distant mountain 1
+      { pos: [[-15, 100], [60, 38], [140, 90]], color: '#eaeaea', shrimmer: true }, // Distant mountain 1
+
+      // high mountain 1
+      { pos: [[8, 100], [30, 30], [60, 100]], color: '#111' },
+      { pos: [[23.5, 50], [30, 30], [42.8, 60]], color: '#aaa', shrimmer: true },
+      // high mountain 2
+      { pos: [[60, 100], [80, 35], [110, 100]], color: '#111' },
+      { pos: [[76.7, 45], [80, 35], [88, 52]], color: '#aaa', shrimmer: true },
+
+      // Small mountain 1
+      { pos: [[-15, 100], [10, 50], [25, 100]], color: '#333' },
+      { pos: [[4.8, 60], [10, 50], [16, 70]], color: '#aaa', shrimmer: true },
+      // Small mountain 2
+      { pos: [[40, 100], [60, 60], [80, 100]], color: '#333' },
+      { pos: [[52.4, 75], [60, 60], [72.6, 85]], color: '#aaa', shrimmer: true },
+
+      // Star
+      { pos: [[60, 26], [65, 19], [70, 26]], color: '#eaeaea', shrimmer: true },
+      { pos: [[60, 21.5], [70, 21.5], [65, 28]], color: '#eaeaea', shrimmer: true },
+    ]
+  },
+  experiment() {
+    return [
+      { pos: [[50, 50], [50, 50], [50, 50]], color: '#333' },
+      { pos: [[50, 50], [50, 50], [50, 50]], color: '#333' },
+
+      // top
+      { pos: [[30, 30], [38, 40], [50, 25]], color: '#333', shrimmer: true },
+      { pos: [[50, 25], [38, 40], [62, 40]], color: '#777', shrimmer: true },
+      { pos: [[50, 25], [62, 40], [70, 30]], color: '#333', shrimmer: true },
+
+      // middle
+      { pos: [[38, 40], [50, 53], [62, 40]], color: '#aaa', shrimmer: true },
+      { pos: [[30, 53], [38, 40], [50, 53]], color: '#333', shrimmer: true },
+      { pos: [[70, 53], [62, 40], [50, 53]], color: '#333', shrimmer: true },
+      { pos: [[30, 30], [30, 53], [38, 40]], color: '#777', shrimmer: true },
+      { pos: [[70, 30], [62, 40], [70, 53]], color: '#777', shrimmer: true },
+
+      // bottom
+      { pos: [[30, 53], [50, 70], [50, 53]], color: '#333', shrimmer: true },
+      { pos: [[70, 53], [50, 70], [50, 53]], color: '#333', shrimmer: true },
+    ]
+  }
+}
+
+function polygons (shape) {
+  return structureManager[shape]().reduce((acc, item, i) => {
+    const values = item.pos.reduce((acc, set) => [...acc, `${ set[0] }% ${ set[1] }%`], [])
+    return acc += `.${ shape }-piece.polygon-${ ++i } {
+  -webkit-clip-path: polygon(${ values.join(', ') });
+  background: ${ (item.color || 'inherit') };
+}\r\n`
+  }, '')
+}
+
+function polygonAnimation () {
+  let animations = ''
 
   for (let i = 1, n = 12; i <= n; i++) {
+    const s = i * .04 + 0.3
+    const t = i * .02 + 0.2
+    const ct = i * .02
+
     animations += `
-.polygon-${ i }::before {
-  animation-delay: ${ i * .05 + .025 }s;
-  animation-duration: 1.7s;
-  animation-name: shimmer;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-}\r\n`
+.polygon-${ i } {
+  transition: -webkit-clip-path ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1), background-color ${ s }s ${ ct }s;
+}\r\n\r\n`
   }
 
   return animations
 }
 
-export default () => (
-  <Link href='/'>
+function shimmeringAnimation (shape) {
+  return structureManager[shape]()
+    .reduce((acc, item, i) => {
+      if (!item.shrimmer) return acc
+
+      return acc += `.${ shape }-piece.polygon-${ ++i }::before {
+  animation-delay: ${ i * .035 + 0.2 }s;
+  animation-duration: 5s;
+  animation-name: shimmer;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}\r\n`
+  }, '')
+}
+
+function unstableAnimation (shape) {
+ return structureManager[shape]()
+    .reduce((acc, item, i) => {
+      if (!item.shrimmer) return acc
+
+      return acc += `.${ shape }-piece.polygon-${ ++i }::before {
+  animation-delay: ${ i * .02 + 0.2 }s;
+  animation-duration: 2s;
+  animation-name: unstable-${ i };
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+ @keyframes unstable-${ i } {
+  0% { background-color: rgba(255,255,255,0); }
+  30% { background-color: rgba(255,255,255, 1); }
+  100% { background-color: rgba(255,255,255,0); }
+}\r\n`
+  }, '')
+}
+
+export default ({ shape = 'logo' }) => {
+  return <Link href='/'>
     <a>
       <div className='logo'>
-        <div className='logo-piece polygon-1'></div>
-        <div className='logo-piece polygon-2'></div>
-        <div className='logo-piece polygon-3'></div>
-        <div className='logo-piece polygon-4'></div>
-        <div className='logo-piece polygon-5'></div>
-        <div className='logo-piece polygon-6'></div>
-        <div className='logo-piece polygon-7'></div>
-        <div className='logo-piece polygon-8'></div>
-        <div className='logo-piece polygon-9'></div>
-        <div className='logo-piece polygon-10'></div>
-        <div className='logo-piece polygon-11'></div>
-        <div className='logo-piece polygon-12'></div>
+        {
+          structureManager[shape]().map((_, i) => (
+            <div key={ i } className={`${ shape }-piece polygon-${ ++i } polygon`}></div>
+          ))
+        }
         <style global jsx>{`
+          ${ polygons('logo') }
+          ${ polygons('photography') }
+          ${ polygons('experiment') }
+          ${ shimmeringAnimation('logo') }
+          ${ shimmeringAnimation('photography') }
+          ${ unstableAnimation('experiment') }
+          ${ polygonAnimation() }
+
           .logo {
             position: relative;
             height: 50px;
             width: 50px;
           }
 
-          .logo-piece {
+          .polygon {
             position: absolute;
             height: 100%;
             width: 100%;
@@ -48,7 +159,7 @@ export default () => (
             background: #333;
           }
 
-          .logo-piece::before {
+          .polygon::before {
             content: "";
             width: 100%;
             height: 100%;
@@ -58,61 +169,12 @@ export default () => (
 
           @keyframes shimmer {
             0% { background-color: rgba(255,255,255,0); }
-            35% { background-color: rgba(255,255,255,.3); }
+            50% { background-color: rgba(255,255,255,0); }
+            60% { background-color: rgba(255,255,255,.2); }
             100% { background-color: rgba(255,255,255,0); }
-          }
-
-          ${ shimmeringAnimation() }
-
-          .polygon-1 {
-            -webkit-clip-path: polygon( 0% 0% ,33.3% 33.3% ,33.3% 0% );
-          }
-
-          .polygon-2 {
-            -webkit-clip-path: polygon( 0% 0% ,0% 33.3% ,33.3% 33.3% );
-          }
-
-          .polygon-3 {
-            -webkit-clip-path: polygon( 0% 33.3% ,33.3% 33.3% ,33.3% 66.6% );
-          }
-
-          .polygon-4 {
-            -webkit-clip-path: polygon( 33.3% 0% ,66.6% 33.3% ,33.3% 33.3% );
-          }
-
-          .polygon-5 {
-            -webkit-clip-path: polygon( 33.3% 33.3% ,66.6% 66.6% ,33.3% 66.6% );
-          }
-
-          .polygon-6 {
-            -webkit-clip-path: polygon( 33.3% 33.3% ,66.6% 66.6% ,66.6% 33.3% );
-          }
-
-          .polygon-7 {
-            -webkit-clip-path: polygon( 33.3% 66.6% ,66.6% 66.6% ,66.6% 100% );
-          }
-
-          .polygon-8 {
-            -webkit-clip-path: polygon( 66.6% 33.3% ,66.6% 66.6% , 100% 66.6%);
-          }
-
-          .polygon-9 {
-            -webkit-clip-path: polygon( 66.6% 66.6% ,66.6% 100%, 100% 100%);
-          }
-
-          .polygon-10 {
-            -webkit-clip-path: polygon( 66.6% 66.6% ,100% 66.6% , 100% 100%);
-          }
-
-          .polygon-11 {
-            -webkit-clip-path: polygon( 66.6% 0% ,100% 0%, 100% 33.3% );
-          }
-
-          .polygon-12 {
-            -webkit-clip-path: polygon( 0% 66.6% ,33.3% 100% , 0 100%);
           }
         `}</style>
       </div>
     </a>
   </Link>
-)
+}

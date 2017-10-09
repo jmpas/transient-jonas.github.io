@@ -12,7 +12,9 @@ const metaData = {
 const Index = ({ posts }) => (
   <Page meta={metaData}>
     <section className='root'>
-      <SecondaryTitle>Blog posts</SecondaryTitle>
+      <SecondaryTitle>Articles</SecondaryTitle>
+      <br/>
+      <br/>
       <ul className='post-list'>{ posts.map((post, idx) => <PostItem {...post} key={idx} />) }</ul>
       <style jsx>{`
         .root {

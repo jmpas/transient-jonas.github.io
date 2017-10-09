@@ -7,7 +7,7 @@ export default ({ children }) => (
     <style jsx>{`
       .root {
         font-family: ${ font };
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 200;
         color: ${ primary }
         margin: 10px 0 5px 0;

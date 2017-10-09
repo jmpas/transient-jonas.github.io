@@ -14,13 +14,13 @@ const PostItem = ({ title, formattedDate, excerpt, slug, language, tags = [] }) 
             <ItemData>{ formattedDate }</ItemData>
           </div>
           <div>
-            <ItemSubtitle type='dark'>Language</ItemSubtitle>
+            <ItemSubtitle>Language</ItemSubtitle>
             <ItemData>{ language }</ItemData>
           </div>
           <div>
-            <ItemSubtitle type='dark'>Tags</ItemSubtitle>
+            <ItemSubtitle>Tags</ItemSubtitle>
             <div className='tag-list'>
-              { tags.map(tag => <PostTag>{ tag }</PostTag>) }
+              { tags.map((tag, i ) => <PostTag key={ i }>{ tag }</PostTag>) }
             </div>
           </div>
         </div>
@@ -34,12 +34,16 @@ const PostItem = ({ title, formattedDate, excerpt, slug, language, tags = [] }) 
           height: 200px;
           width: 350px;
           display: flex;
-          margin-bottom: 30px;
+          margin-bottom: 10px;
         }
 
         .post-content {
-          flex-basis: 70%;
-          padding: 0 15px;
+          flex-basis: 65%;
+          padding: 0 0 0 5px;
+        }
+
+        .post-extra {
+          flex-basis: 35%;
         }
 
         .tag-list {
