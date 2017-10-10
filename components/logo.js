@@ -19,8 +19,13 @@ const structureManager = {
   },
   photography() {
     return [
-      { pos: [[-22, 70], [18, 40], [110, 90]], color: '#eaeaea', shrimmer: true }, // Distant mountain 1
-      { pos: [[-15, 100], [60, 38], [140, 90]], color: '#eaeaea', shrimmer: true }, // Distant mountain 1
+      // Clouds
+      { pos: [[18, 30], [60, 35], [70, 25]], color: '#eaeaea', shrimmer: true },
+      { pos: [[50, 20], [85, 25], [95, 20]], color: '#eaeaea', shrimmer: true },
+
+      // Distant mountains
+      { pos: [[-22, 70], [18, 40], [110, 90]], color: '#eaeaea', shrimmer: true },
+      { pos: [[-15, 100], [60, 38], [140, 90]], color: '#eaeaea', shrimmer: true },
 
       // high mountain 1
       { pos: [[8, 100], [30, 30], [60, 100]], color: '#111' },
@@ -35,10 +40,6 @@ const structureManager = {
       // Small mountain 2
       { pos: [[40, 100], [60, 60], [80, 100]], color: '#333' },
       { pos: [[52.4, 75], [60, 60], [72.6, 85]], color: '#aaa', shrimmer: true },
-
-      // Star
-      { pos: [[60, 26], [65, 19], [70, 26]], color: '#eaeaea', shrimmer: true },
-      { pos: [[60, 21.5], [70, 21.5], [65, 28]], color: '#eaeaea', shrimmer: true },
     ]
   },
   experiment() {
@@ -118,8 +119,8 @@ function unstableAnimation (shape) {
   animation-name: unstable-${ i };
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
-}
- @keyframes unstable-${ i } {
+}\r\n
+@keyframes unstable-${ i } {
   0% { background-color: rgba(255,255,255,0); }
   30% { background-color: rgba(255,255,255, 1); }
   100% { background-color: rgba(255,255,255,0); }
