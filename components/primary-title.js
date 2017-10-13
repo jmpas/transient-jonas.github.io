@@ -1,16 +1,8 @@
-import font, { primarySize, primaryWeight } from '../styles/font'
-import { primary } from '../styles/colors'
+import styles from '../styles/components/primary-title'
 
 export default ({ children }) => (
-  <h1 className='root'>
+  <h1 className='primary-title'>
     { children }
-    <style jsx>{`
-      .root {
-        font-family: ${ font };
-        color: ${ primary };
-        font-size: ${ primarySize };
-        font-weight: ${ primaryWeight }
-      }
-    `}</style>
+    <style jsx>{ styles }</style>
   </h1>
 )

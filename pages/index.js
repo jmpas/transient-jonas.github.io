@@ -2,7 +2,7 @@ import Page from '../layouts/main'
 import PostItem from '../components/post-item'
 import SecondaryTitle from  '../components/secondary-title'
 
-import { medium, big } from '../styles/layout-spacing'
+import styles from '../styles/pages/index'
 
 const metaData = {
   title: 'Nipher',
@@ -11,22 +11,12 @@ const metaData = {
 
 const Index = ({ posts }) => (
   <Page meta={metaData}>
-    <section className='root'>
+    <section className='index-page'>
       <SecondaryTitle>Articles</SecondaryTitle>
       <br/>
       <br/>
       <ul className='post-list'>{ posts.map((post, idx) => <PostItem {...post} key={idx} />) }</ul>
-      <style jsx>{`
-        .root {
-          padding: ${ medium }px ${ big }px
-        }
-
-        .post-list {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-        }
-      `}</style>
+      <style jsx>{ styles }</style>
     </section>
   </Page>
 )

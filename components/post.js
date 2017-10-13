@@ -1,4 +1,4 @@
-import SyntaxHighlighting from './syntax-highlighting'
+import syntaxHighlighting from '../styles/syntax-highlighting'
 
 const PostTitle = ({ title }) => (
   <h1 className='post-title' itemProp='name'>
@@ -13,7 +13,7 @@ export default ({ title, body, description, date, formattedDate }) => (
       <p itemProp='description'>{ description || '' }</p>
       <time itemProp='datePublished' dateTime={date}>{ formattedDate }</time>
       <div dangerouslySetInnerHTML={{ __html: body }} />
-      <SyntaxHighlighting />
+      <style global jsx>{ syntaxHighlighting }</style>
     </article>
   </section>
 )

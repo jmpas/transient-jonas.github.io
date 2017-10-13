@@ -4,6 +4,8 @@ import ItemSubtitle from './item-subtitle'
 import ItemData from './item-data'
 import PostTag from './post-tag'
 
+import styles from '../styles/components/post-item'
+
 const PostItem = ({ title, formattedDate, excerpt, slug, language, tags = [] }) => (
   <Link prefetch as={`/${slug}`} href={`/post?slug=${slug}`}>
     <a className='root'>
@@ -29,28 +31,7 @@ const PostItem = ({ title, formattedDate, excerpt, slug, language, tags = [] }) 
           <ItemData>{ excerpt } ...</ItemData>
         </div>
       </li>
-      <style jsx>{`
-        .post-item {
-          height: 200px;
-          width: 350px;
-          display: flex;
-          margin-bottom: 10px;
-        }
-
-        .post-content {
-          flex-basis: 65%;
-          padding: 0 0 0 5px;
-        }
-
-        .post-extra {
-          flex-basis: 35%;
-        }
-
-        .tag-list {
-          display: flex;
-          flex-wrap: wrap;
-        }
-      `}</style>
+      <style jsx>{ styles }</style>
     </a>
   </Link>
 )

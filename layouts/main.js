@@ -1,7 +1,8 @@
 import Head from '../components/head'
 import Logo from '../components/logo'
 import Topbar from '../components/topbar'
-import NormalizeCss from '../components/normalize-css'
+import global from '../styles/global'
+import normalize from '../styles/normalize'
 
 export default ({ meta, children }) => (
   <div>
@@ -11,18 +12,8 @@ export default ({ meta, children }) => (
     </Topbar>
     { children }
 
-    <style global jsx>{`
-      a {
-        text-decoration: none;
-      }
-
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-    `}</style>
-    <NormalizeCss />
+    <style global jsx>{ global }</style>
+    <style global jsx>{ normalize }</style>
   </div>
 )
 

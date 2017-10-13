@@ -1,13 +1,8 @@
-import { medium, big } from '../styles/layout-spacing'
+import styles from '../styles/components/topbar'
 
 export default ({ children }) => (
   <header className='root'>
-    <style jsx>{`
-        .root {
-          padding: ${ medium }px ${ big }px
-          display: flex;
-        }
-      `}</style>
+    <style jsx>{ styles }</style>
     { children }
   </header>
 )
