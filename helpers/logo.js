@@ -42,24 +42,19 @@ export const structureManager = {
   },
   experiment() {
     return [
-      { pos: [[50, 50], [50, 50], [50, 50]], color: '#333' },
-      { pos: [[50, 50], [50, 50], [50, 50]], color: '#333' },
+      { pos: [[25, 75], [50, 25], [75, 75]], color: '#333' },
+      { pos: [[20, 80], [50, 20], [80, 80]], color: 'rgba(50, 50, 50, 0.4)', shrimmer: true },
+      { pos: [[15, 85], [50, 30], [85, 85]], color: 'rgba(100, 100, 100, 0.4)', shrimmer: true },
+      { pos: [[10, 95], [50, 15], [90, 95]], color: 'rgba(150, 150, 150, 0.4)', shrimmer: true },
+      { pos: [[7, 90], [50, 10], [93, 90]], color: 'rgba(200, 200, 200, 0.4)', shrimmer: true },
+      { pos: [[5, 85], [50, 0], [95, 85]], color: 'rgba(0, 0, 0, 0.4)' },
 
-      // top
-      { pos: [[30, 30], [38, 40], [50, 25]], color: '#333', shrimmer: true },
-      { pos: [[50, 25], [38, 40], [62, 40]], color: '#777', shrimmer: true },
-      { pos: [[50, 25], [62, 40], [70, 30]], color: '#333', shrimmer: true },
-
-      // middle
-      { pos: [[38, 40], [50, 53], [62, 40]], color: '#aaa', shrimmer: true },
-      { pos: [[30, 53], [38, 40], [50, 53]], color: '#333', shrimmer: true },
-      { pos: [[70, 53], [62, 40], [50, 53]], color: '#333', shrimmer: true },
-      { pos: [[30, 30], [30, 53], [38, 40]], color: '#777', shrimmer: true },
-      { pos: [[70, 30], [62, 40], [70, 53]], color: '#777', shrimmer: true },
-
-      // bottom
-      { pos: [[30, 53], [50, 70], [50, 53]], color: '#333', shrimmer: true },
-      { pos: [[70, 53], [50, 70], [50, 53]], color: '#333', shrimmer: true },
+      { pos: [[25, 25], [50, 75], [75, 25]], color: 'rgba(200, 200, 200, 0.4)', shrimmer: true  },
+      { pos: [[20, 20], [50, 80], [80, 20]], color: 'rgba(150, 150, 150, 0.4)', shrimmer: true  },
+      { pos: [[15, 15], [50, 70], [85, 15]], color: 'rgba(100, 100, 100, 0.4)', shrimmer: true  },
+      { pos: [[10, 10], [50, 80], [90, 10]], color: 'rgba(50, 50, 50, 0.4)', shrimmer: true  },
+      { pos: [[7, 17], [50, 90], [93, 17]], color: 'rgba(25, 25, 25, 0.4)' },
+      { pos: [[5, 25], [50, 100], [95, 25]], color: 'rgba(0, 0, 0, 0.4)'  }
     ]
   }
 }
