@@ -10,7 +10,7 @@ import { structureManager } from '../helpers/logo'
 
 const animatedShapes = ['photography']
 
-export default class Logo extends Component {
+export default class extends Component {
   constructor(props) {
     super(props)
 
@@ -23,7 +23,7 @@ export default class Logo extends Component {
 
   componentWillMount() {
     this.setState({
-      hasAnimation: animatedShapes.includes(this.state.shape)
+      hasAnimation: animatedShapes.includes(this.props.shape)
     })
   }
 
@@ -32,7 +32,7 @@ export default class Logo extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.hasAnimation) {
+    if (animatedShapes.includes(this.props.shape)) {
       this.setAnimationInterval()
     } else {
       this.clearAnimationInterval()
@@ -73,6 +73,11 @@ export default class Logo extends Component {
     this.timeouts.forEach(item => clearTimeout(item))
     this.timeouts = null
     this.interval = null
+
+    this.setState({
+      ...this.state,
+      step: null
+    })
   }
 
   transformLogo() {
@@ -97,13 +102,16 @@ export default class Logo extends Component {
   }
 
   render() {
+    const structure = (structureManager[this.props.shape] || structureManager.logo)()
+    const shape = structureManager[this.props.shape] ? this.props.shape : 'logo'
+
     return (
       <Link href='/'>
         <a>
-          <div className='logo'>
+          <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' }`}>
             {
-              structureManager[this.state.shape]().map((item, i) => (
-                <div key={ i } className={`${ this.state.shape }-piece polygon-${ ++i } polygon ${( item.modifier || '' )} step-${( this.state.step || '' )}`}></div>
+              structure.map((item, i) => (
+                <div key={ i } className={`${ shape }-piece polygon-${ ++i } polygon ${( item.modifier || '' )} step-${( this.state.step || '' )}`}></div>
               ))
             }
             <style global jsx>{ mainStyle }</style>
