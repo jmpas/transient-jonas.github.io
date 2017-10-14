@@ -37,7 +37,9 @@ export default class extends Component {
           <Logo navMode={ this.state.isMenuOpen } shape={ this.state.currentMenuItem || 'logo' }/>
           <MenuButton onClick={ this.toggleMenu.bind(this) }/>
         </Topbar>
-        { this.props.children }
+        <div className={ `page-content ${ this.state.isMenuOpen ? 'hidden' : ''}` }>
+          { this.props.children }
+        </div>
         <MenuNav show={ this.state.isMenuOpen } onChange={ this.updateCurrentMenuItem.bind(this) } />
         <Overlay show={ this.state.isMenuOpen } />
         <style global jsx>{ global }</style>
