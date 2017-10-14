@@ -5,13 +5,15 @@ export default `
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(-100%);
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-100%);
   z-index: 2;
+  transition: transform 0.6s 1s cubic-bezier(.7, .3, 0, 1);
 }
 
 .menu-nav.visible {
-  transform: translateX(0); 
+  transform: translateY(0);
+  transition: transform 0.6s 1s cubic-bezier(.7, .3, 0, 1);
 }
 
 .menu-nav ul {

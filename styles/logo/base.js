@@ -3,6 +3,10 @@ export default `
   position: relative;
   height: 50px;
   width: 50px;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  opacity: 1;
 }
 
 .logo.nav-mode {
@@ -13,4 +17,12 @@ export default `
   height: 500px;
   width: 500px;
   z-index: 1;
+  opacity: 0;
+
+  animation: 2s fadeIn ease forwards 2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }`

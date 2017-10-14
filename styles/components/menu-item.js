@@ -15,7 +15,6 @@ export default `
 }
 
 .menu-item:hover {
-  background: rgba(200, 200, 200, 0.3);
   color: #333;
   transition: background .5s cubic-bezier(.7, .3, 0, 1), color .5s cubic-bezier(.7, .3, 0, 1);
 }
