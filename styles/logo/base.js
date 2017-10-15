@@ -19,7 +19,7 @@ export default `
   z-index: 1;
   opacity: 0;
 
-  animation: 2s fadeIn ease forwards 2s;
+  animation: 2s fadeIn ease forwards 1.6s;
 }
 
 @keyframes fadeIn {

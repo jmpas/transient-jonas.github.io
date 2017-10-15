@@ -5,14 +5,13 @@ export default `
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.5);
   transform: translateY(-100%);
-  transition: transform 0.5s 1.2s cubic-bezier(.7, .3, 0, 1);
+  transition: transform .3s .9s cubic-bezier(.7, .3, 0, 1);
 }
 
 .overlay.visible {
   transform: translateY(0);
-  transition: transform 0.5s cubic-bezier(.7, .3, 0, 1);
+  transition: transform .3s cubic-bezier(.7, .3, 0, 1);
 }
 
 .polygon {
@@ -21,12 +20,12 @@ export default `
   width: 100%;
   opacity: 1;
   background: #eee;
-  transition: -webkit-clip-path .6s .6s cubic-bezier(.7, .3, 0, 1), background .6s cubic-bezier(.7, .3, 0, 1);
+  transition: -webkit-clip-path .6s .3s cubic-bezier(.7, .3, 0, 1), background .6s cubic-bezier(.7, .3, 0, 1);
 }
 
 .overlay.visible .polygon {
   background: #fff;
-  transition: -webkit-clip-path .6s 0.5s cubic-bezier(.7, .3, 0, 1), background .6s 1.2s cubic-bezier(.7, .3, 0, 1);
+  transition: -webkit-clip-path .6s .3s cubic-bezier(.7, .3, 0, 1), background .6s .9s cubic-bezier(.7, .3, 0, 1);
 }
 
 .overlay .polygon:nth-child(1) {
