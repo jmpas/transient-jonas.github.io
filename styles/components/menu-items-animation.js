@@ -10,5 +10,5 @@ export default `
   transform: translateX(0);
   opacity: 1;
 
-  transition: transform 1s .9s ease, opacity 0.3s .9s ease;
+  transition: transform 1s 1.1s ease, opacity .3s 1.1s ease;
 }`

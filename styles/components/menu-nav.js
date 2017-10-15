@@ -7,12 +7,12 @@ export default `
   bottom: 0;
   transform: translateY(-100%);
   z-index: 2;
-  transition: transform 0.6s 1s cubic-bezier(.7, .3, 0, 1);
+  transition: transform .3s 1s cubic-bezier(.7, .3, 0, 1);
 }
 
 .menu-nav.visible {
   transform: translateY(0);
-  transition: transform 0s;
+  transition: transform .3s .8s cubic-bezier(.7, .3, 0, 1);
 }
 
 .menu-nav ul {
