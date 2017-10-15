@@ -8,7 +8,7 @@ export default `
   font-size: 20px;
   font-weight: 200;
   color: ${ primary };
-  line-height: 22px;
+  line-height: 32px;
   font-weight: 300;
   padding: 0 ${ big }px;
 }
