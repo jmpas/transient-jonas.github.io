@@ -1,6 +1,7 @@
+import css from 'styled-jsx/css'
 import { medium, big } from '../variables/layout-spacing'
 
-export default `
+export default css`
 .index-page {
   padding: ${ medium }px ${ big }px;
 }

@@ -1,8 +1,10 @@
+import css from 'styled-jsx/css'
+
 import font from '../variables/font'
 import { primary } from '../variables/colors'
 import { big, medium } from '../variables/layout-spacing'
 
-export default `
+export default css`
 .post-container p {
   font-family: ${ font };
   font-size: 20px;

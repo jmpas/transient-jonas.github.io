@@ -1,4 +1,6 @@
-export default `
+import css from 'styled-jsx/css'
+
+export default css`
 .post-item {
   height: 200px;
   width: 350px;

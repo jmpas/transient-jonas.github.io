@@ -1,7 +1,9 @@
+import css from 'styled-jsx/css'
+
 import font from '../variables/font'
 import { primary, secondary } from '../variables/colors'
 
-export default `
+export default css`
 .root {
   font-family: ${ font };
   font-size: 12px;

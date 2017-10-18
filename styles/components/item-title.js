@@ -1,7 +1,9 @@
+import css from 'styled-jsx/css'
+
 import { primary } from '../variables/colors'
 import font, { secondaryWeight } from '../variables/font'
 
-export default `
+export default css`
 .root {
   font-family: ${ font };
   font-size: 20px;

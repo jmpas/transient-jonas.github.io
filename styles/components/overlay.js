@@ -1,4 +1,6 @@
-export default `
+import css from 'styled-jsx/css'
+
+export default css`
 .overlay {
   position: absolute;
   left: 0;

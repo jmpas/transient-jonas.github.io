@@ -1,4 +1,6 @@
-export default `
+import css from 'styled-jsx/css'
+
+export default css`
 .menu-nav .menu-item {
   transform: translateX(-5%);
   opacity: 0;

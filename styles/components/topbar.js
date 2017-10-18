@@ -1,6 +1,8 @@
+import css from 'styled-jsx/css'
+
 import { medium, big } from '../variables/layout-spacing'
 
-export default `
+export default css`
 .topbar {
   padding: ${ medium }px ${ big }px;
   display: flex;

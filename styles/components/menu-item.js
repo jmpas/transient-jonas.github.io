@@ -1,6 +1,8 @@
+import css from 'styled-jsx/css'
+
 import font from '../variables/font'
 
-export default `
+export default css`
 .menu-item {
   position: relative;
   color: #aaa;

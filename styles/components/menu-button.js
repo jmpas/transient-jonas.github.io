@@ -1,4 +1,6 @@
-export default `
+import css from 'styled-jsx/css'
+
+export default css`
 .menu-button {
   position: relative;
   height: 50px;

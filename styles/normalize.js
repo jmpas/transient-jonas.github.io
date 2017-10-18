@@ -1,4 +1,6 @@
-export default `
+import css from 'styled-jsx/css'
+
+export default css`
 html {
   line-height: 1.15; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
