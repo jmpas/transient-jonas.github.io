@@ -6,12 +6,11 @@ const metaData = {
   description: 'Developer, Amateur photographer, dreamer'
 }
 
-const Index = ({ posts, startTransition }) => {
-  console.log(startTransition)
-  return <Page meta={metaData}>
+const Index = ({ posts, startTransition }) => (
+  <Page meta={metaData}>
     <BlogSection className='index-page' posts={ posts } />
   </Page>
-}
+)
 
 Index.getInitialProps = async ({ query, req }) => {
 	if (query.build && typeof window === 'undefined') return query
