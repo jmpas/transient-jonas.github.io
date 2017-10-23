@@ -1,11 +1,13 @@
 import { Component } from 'react'
-import Link from 'next/link'
+import Link from './link'
 
 import mainStyle from '../styles/logo/base'
 import polygonsTransitions from '../styles/logo/polygons-transitions'
 import shimmeringAnimation from '../styles/logo/shrimmering-animation'
 import polygons from '../styles/logo/polygons'
 import cloudSteps from  '../styles/logo/clouds'
+import fadeIn from '../styles/fade-in'
+
 import { structureManager } from '../helpers/logo'
 
 const animatedShapes = ['photography']
@@ -106,53 +108,52 @@ export default class extends Component {
     const shape = structureManager[this.props.shape] ? this.props.shape : 'logo'
 
     return (
-      <Link href='/'>
-        <a>
-          <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' }`}>
-            {
-              structure.map((item, i) => (
-                <div key={ i } className={`${ shape }-piece polygon-${ ++i } polygon ${( item.modifier || '' )} step-${( this.state.step || '' )}`}></div>
-              ))
+      <Link href='/' middleware={ this.props.startTransition } delay={ 1500 }>
+        <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' } root`}>
+          {
+            structure.map((item, i) => (
+              <div key={ i } className={`${ shape }-piece polygon-${ ++i } polygon ${( item.modifier || '' )} step-${( this.state.step || '' )}`}></div>
+            ))
+          }
+          <style jsx>{ fadeIn }</style>
+          <style global jsx>{ mainStyle }</style>
+          <style global jsx>{`
+            ${ polygons(structureManager.logo(), 'logo') }
+            ${ shimmeringAnimation(structureManager.logo(), 'logo') }
+            ${ polygonsTransitions(structureManager.logo(), 'logo') }
+
+            ${ polygons(structureManager.photography(), 'photography') }
+            ${ shimmeringAnimation(structureManager.photography(), 'photography') }
+            ${ polygonsTransitions(structureManager.photography(), 'photography') }
+            ${ cloudSteps }
+
+            ${ polygons(structureManager.experiment(), 'experiment') }
+            ${ shimmeringAnimation(structureManager.experiment(), 'experiment') }
+            ${ polygonsTransitions(structureManager.experiment(), 'experiment') }
+
+            .polygon {
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              opacity: 1;
+              background: #333;
             }
-            <style global jsx>{ mainStyle }</style>
-            <style global jsx>{`
-              ${ polygons(structureManager.logo(), 'logo') }
-              ${ shimmeringAnimation(structureManager.logo(), 'logo') }
-              ${ polygonsTransitions(structureManager.logo(), 'logo') }
 
-              ${ polygons(structureManager.photography(), 'photography') }
-              ${ shimmeringAnimation(structureManager.photography(), 'photography') }
-              ${ polygonsTransitions(structureManager.photography(), 'photography') }
-              ${ cloudSteps }
+            .polygon::before {
+              content: "";
+              width: 100%;
+              height: 100%;
+              background: rgba(255,255,255,0); top: 0; left: 0;
+              position: absolute;
+            }
 
-              ${ polygons(structureManager.experiment(), 'experiment') }
-              ${ shimmeringAnimation(structureManager.experiment(), 'experiment') }
-              ${ polygonsTransitions(structureManager.experiment(), 'experiment') }
-
-              .polygon {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                opacity: 1;
-                background: #333;
-              }
-
-              .polygon::before {
-                content: "";
-                width: 100%;
-                height: 100%;
-                background: rgba(255,255,255,0); top: 0; left: 0;
-                position: absolute;
-              }
-
-              @keyframes shimmer {
-                0% { background-color: rgba(255,255,255,0); }
-                50% { background-color: rgba(255,255,255,0); }
-                60% { background-color: rgba(255,255,255,.3); }
-                100% { background-color: rgba(255,255,255,0); }
-              }`}</style>
-          </div>
-        </a>
+            @keyframes shimmer {
+              0% { background-color: rgba(255,255,255,0); }
+              50% { background-color: rgba(255,255,255,0); }
+              60% { background-color: rgba(255,255,255,.3); }
+              100% { background-color: rgba(255,255,255,0); }
+            }`}</style>
+        </div>
       </Link>
     )
   }

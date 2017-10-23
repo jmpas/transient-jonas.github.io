@@ -1,25 +1,17 @@
 import Page from '../layouts/main'
-import PostItem from '../components/post-item'
-import SecondaryTitle from  '../components/secondary-title'
-
-import styles from '../styles/pages/index'
+import BlogSection from  '../components/blog-section'
 
 const metaData = {
   title: 'Nipher',
   description: 'Developer, Amateur photographer, dreamer'
 }
 
-const Index = ({ posts }) => (
-  <Page meta={metaData}>
-    <section className='index-page'>
-      <SecondaryTitle>Articles</SecondaryTitle>
-      <br/>
-      <br/>
-      <ul className='post-list'>{ posts.map((post, idx) => <PostItem {...post} key={idx} />) }</ul>
-      <style jsx>{ styles }</style>
-    </section>
+const Index = ({ posts, startTransition }) => {
+  console.log(startTransition)
+  return <Page meta={metaData}>
+    <BlogSection className='index-page' posts={ posts } />
   </Page>
-)
+}
 
 Index.getInitialProps = async ({ query, req }) => {
 	if (query.build && typeof window === 'undefined') return query
