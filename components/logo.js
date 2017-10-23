@@ -131,6 +131,10 @@ export default class extends Component {
             ${ shimmeringAnimation(structureManager.experiment(), 'experiment') }
             ${ polygonsTransitions(structureManager.experiment(), 'experiment') }
 
+            ${ polygons(structureManager.blog(), 'blog') }
+            ${ shimmeringAnimation(structureManager.blog(), 'blog') }
+            ${ polygonsTransitions(structureManager.blog(), 'blog') }
+
             .polygon {
               position: absolute;
               height: 100%;
