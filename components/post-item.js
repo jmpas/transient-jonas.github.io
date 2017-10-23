@@ -9,7 +9,7 @@ import styles from '../styles/components/post-item'
 import fadeIn from '../styles/fade-in'
 
 const PostItem = ({ title, formattedDate, excerpt, slug, language, tags = [], startTransition }) => (
-  <Link prefetch as={`/${slug}`} href={`/post?slug=${slug}`} middleware={ startTransition } delay={ 1500 }>
+  <Link prefetch as={`/${slug}`} href={`/post?slug=${slug}`} middleware={ startTransition } delay={ 1000 }>
     <li className='post-item root'>
       <div className='post-extra'>
         <div>

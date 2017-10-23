@@ -13,11 +13,18 @@ export default css`
   transition: transform 0.6s .9s cubic-bezier(.7, .3, 0, 1), background .5s cubic-bezier(.7, .3, 0, 1);
 }
 
-.overlay.visible {
+.overlay.transitioning {
   transform: translateY(0);
   background: #fff;
   
-  transition: transform 0.6s cubic-bezier(.7, .3, 0, 1), background .6s 1.2s cubic-bezier(.7, .3, 0, 1);
+  transition: transform .6s cubic-bezier(.7, .3, 0, 1), background .6s .6s cubic-bezier(.7, .3, 0, 1);
+}
+
+.overlay.visible {
+  transform: translateY(0);
+  background: #fff;
+
+  transition: transform .6s cubic-bezier(.7, .3, 0, 1), background .6s 1.2s cubic-bezier(.7, .3, 0, 1);
 }
 
 .polygon {

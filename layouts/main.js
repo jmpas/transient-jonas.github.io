@@ -52,7 +52,7 @@ export default class extends Component {
           { children }
         </div>
         <MenuNav show={ this.state.isMenuOpen } onChange={ this.updateCurrentMenuItem.bind(this) } />
-        <Overlay show={ this.state.isMenuOpen || this.state.transitioning } />
+        <Overlay show={ this.state.isMenuOpen } transitioning={ this.state.transitioning } />
         <style global jsx>{ global }</style>
         <style global jsx>{ normalize }</style>
       </div>

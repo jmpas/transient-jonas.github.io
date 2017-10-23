@@ -108,7 +108,7 @@ export default class extends Component {
     const shape = structureManager[this.props.shape] ? this.props.shape : 'logo'
 
     return (
-      <Link href='/' middleware={ this.props.startTransition } delay={ 1500 }>
+      <Link href='/' middleware={ this.props.startTransition } delay={ 1000 }>
         <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' } root`}>
           {
             structure.map((item, i) => (
