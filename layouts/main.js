@@ -36,6 +36,14 @@ export default class extends Component {
       transitioning: true
     })
   }
+  startTransitionFromMenu() {
+    this.setState({
+      ...this.state,
+      isMenuOpen: false
+    })
+
+    setTimeout(() => this.startTransition(), 900)
+  }
   render() {
     var children = React.Children.map(this.props.children, child => (
       React.cloneElement(child, { startTransition: this.startTransition.bind(this) })
@@ -46,12 +54,12 @@ export default class extends Component {
         <Head {...this.props.meta} />
         <Topbar>
           <Logo navMode={ this.state.isMenuOpen } shape={ this.state.currentMenuItem || 'logo' } startTransition={ this.startTransition.bind(this) } />
-          <MenuButton onClick={ this.toggleMenu.bind(this) }/>
+          <MenuButton onClick={ this.toggleMenu.bind(this) } open={ this.state.isMenuOpen } />
         </Topbar>
         <div className={ `page-content ${ this.state.isMenuOpen ? 'hidden' : ''}` }>
           { children }
         </div>
-        <MenuNav show={ this.state.isMenuOpen } onChange={ this.updateCurrentMenuItem.bind(this) } />
+        <MenuNav show={ this.state.isMenuOpen } onChange={ this.updateCurrentMenuItem.bind(this) } startTransition={ this.startTransitionFromMenu.bind(this) } closeMenu={ this.toggleMenu.bind(this) } />
         <Overlay show={ this.state.isMenuOpen } transitioning={ this.state.transitioning } />
         <style global jsx>{ global }</style>
         <style global jsx>{ normalize }</style>

@@ -7,7 +7,6 @@ export default css`
   position: relative;
   color: #aaa;
   font-size: 21px;
-  padding: 30px;
   font-family: ${ font };
   flex-basis: 25%;
   text-align: center;
