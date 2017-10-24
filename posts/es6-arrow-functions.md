@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ES6 - Arrow Functions"
+slug: ES6-arrow-functions
 description: "Entenda ES6 arrow functions e sua diferença para a função padrão do javascript."
 date: 2016-03-31 00:40:43 -0300
 language: Brazilian Portugese

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ES6 - Promises"
+slug: es6-promises
 description: "Entenda ES6 promises e suas vantagens em operações assíncronas no javascript."
 date: 2016-04-08 18:40:43 -0300
 language: Brazilian Portugese

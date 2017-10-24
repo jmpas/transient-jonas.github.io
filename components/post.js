@@ -1,3 +1,5 @@
+import ReactDisqusComments from 'react-disqus-comments'
+
 import syntaxHighlighting from '../styles/syntax-highlighting'
 import styles from '../styles/components/post'
 import fadeIn from '../styles/fade-in'
@@ -8,7 +10,7 @@ const PostTitle = ({ title }) => (
   </h1>
 )
 
-export default ({ title, body, description, date, formattedDate }) => (
+export default ({ title, body, description, date, formattedDate, slug }) => (
   <section>
     <article className='post-container root' itemProp='articleBody'>
       <PostTitle title={title} />
@@ -19,5 +21,6 @@ export default ({ title, body, description, date, formattedDate }) => (
       <style global jsx>{ fadeIn }</style>
       <style global jsx>{ syntaxHighlighting }</style>
     </article>
+    <ReactDisqusComments identifier={ `/${ slug }` } url={ `http://nipher.io/${ slug }` } shortname='nipher' />
   </section>
 )

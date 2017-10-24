@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Mudanças"
+slug: mudancas
 description: "Novidades e novas experiências de vida"
 date: 2016-05-17 13:23:43 -0300
 language: Brazilian Portugese

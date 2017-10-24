@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "There and back again"
+slug: there-and-back-again
 date:   2016-03-26 23:58:43 -0300
 language: Brazilian Portugese
 excerpt: |

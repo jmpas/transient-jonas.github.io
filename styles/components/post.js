@@ -12,21 +12,27 @@ export default css`
   color: ${ primary };
   line-height: 32px;
   font-weight: 300;
-  padding: 0 ${ big }px;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-container h1 {
   font-family: ${ font };
   font-size: 40px;
   font-weight: 600;
-  padding: 0 ${ big }px;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-container h2 {
   font-family: ${ font };
   font-size: 32px;
   font-weight: 600;
-  padding: 0 ${ big }px;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-container h4 {
@@ -36,7 +42,9 @@ export default css`
   font-weight: 600;
   line-height: 22px;
   color: #333;
-  padding: 0 ${ big }px;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-container strong {
@@ -45,12 +53,15 @@ export default css`
 }
 
 .post-container time {
+  display: block;
   font-family: ${ font };
   font-size: 15px;
   font-weight: 300;
   color: #515151;
   text-transform: uppercase;
-  padding: 0 ${ big }px;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-container ul {
@@ -58,22 +69,34 @@ export default css`
   color: #666;
   font-size: 18px;
   font-weight: 200;
-  padding: 0 ${ big }px !important;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .post-container ol {
   color: #666;
   font-size: 18px;
   font-weight: 200;
-  padding: 0 ${ big }px !important;
   list-style: inside decimal;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto
+  padding-left: 0;
+}
+
+.post-container ol li {
+  margin-bottom: .25rem;
 }
 
 .post-container blockquote {
-  padding: 0 0 0 30px;
+  padding: 0 0 0 10px;
   color: #999;
   border-left: 10px solid #e5e5e5;
-  margin: 0 70px;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(10px);
 }
 
 .post-container blockquote p {
@@ -81,15 +104,19 @@ export default css`
 }
 
 .post-container pre {
-  padding: 50px ${ big }px;
+  padding: 50px 0px;
 }
 
 .post-container pre code {
+  display: block;
   padding: 0;
-  font-size: 100%;
+  font-size: 16px;
   color: inherit;
   background-color: transparent;
   color: #fff;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-container code {
@@ -104,4 +131,10 @@ export default css`
   font-size: 20px;
   font-weight: 300;
   color: #268bd2;
+}
+
+#disqus_thread {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
 }`

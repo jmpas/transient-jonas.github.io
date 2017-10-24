@@ -2,12 +2,13 @@ import Post from '../components/post'
 import Page from '../layouts/main'
 
 const PostPage = ({ post, metaData, date }) => (
-  <Page meta={metaData}>
-    <Post title={metaData.title}
-          description={metaData.description}
-          date={metaData.date}
-          formattedDate={date}
-          body={post} />
+  <Page meta={ metaData }>
+    <Post title={ metaData.title}
+          description={ metaData.description }
+          date={ metaData.date }
+          formattedDate={ date }
+          body={ post }
+          slug={ metaData.slug } />
   </Page>
 )
 

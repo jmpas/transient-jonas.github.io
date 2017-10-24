@@ -51,7 +51,7 @@ export default class extends Component {
     const logoShape = this.state.isMenuOpen ? this.state.currentMenuItem : 'logo'
 
     return (
-      <div>
+      <div className='page-container'>
         <Head {...this.props.meta} />
         <Topbar>
           <Logo navMode={ this.state.isMenuOpen } shape={ logoShape || 'logo' } startTransition={ this.startTransition.bind(this) } />

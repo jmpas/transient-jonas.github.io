@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "ES6 - Let, Const & Blocks"
+slug: ES6-let-const-blocks
 description: "Aprenda a diferença das novas variáveis no ES6 e o que mudou para o Javascript antigo."
 date:   2016-03-27 16:13:43 -0300
 language: Brazilian Portugese

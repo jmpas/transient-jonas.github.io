@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ES6 - Template Literals"
+slug: es6-template-literals
 description: "Veja o que são ES6 template literals e as melhorias que trazem para o javascript."
 date: 2016-05-01 20:23:43 -0300
 language: Brazilian Portugese

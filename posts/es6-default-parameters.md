@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ES6 - Default Parameters"
+slug: es6-default-parameters
 description: "Entenda parâmetros predefinidos em javascript com a nova sintaxe do es6."
 date: 2016-04-21 11:25:43 -0300
 language: Brazilian Portugese
