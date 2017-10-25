@@ -2,8 +2,8 @@ import Page from '../layouts/main'
 import BlogSection from  '../components/blog-section'
 
 const metaData = {
-  title: 'Nipher',
-  description: 'Developer, Amateur photographer, dreamer'
+  title: 'Nipher - Articles',
+  description: 'Articles about web development'
 }
 
 const Index = ({ posts, startTransition }) => (
