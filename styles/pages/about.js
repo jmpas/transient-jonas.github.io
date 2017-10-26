@@ -6,7 +6,7 @@ export default css`
   overflow-y: hidden !important;
 }
 
-:global(.logo) {
+:global(.logo:not(.nav-mode)) {
   margin-left: 400px;
 }
 
