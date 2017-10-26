@@ -106,10 +106,11 @@ export default class extends Component {
   render() {
     const structure = (structureManager[this.props.shape] || structureManager.logo)()
     const shape = structureManager[this.props.shape] ? this.props.shape : 'logo'
+    const modifier = this.props.navMode ? '' : this.props.modifier
 
     return (
       <Link href='/' middleware={ this.props.startTransition } delay={ 1000 }>
-        <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' } root`}>
+        <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' } root ${ modifier }`}>
           {
             structure.map((item, i) => (
               <div key={ i } className={`${ shape }-piece polygon-${ ++i } polygon ${( item.modifier || '' )} step-${( this.state.step || '' )}`}></div>

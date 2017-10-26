@@ -7,7 +7,7 @@ export default css`
   left:0;
   bottom:0;
   right:0;
-  overflow-y:scroll;
+  overflow-y: scroll;
 }
 
 a {

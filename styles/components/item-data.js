@@ -4,7 +4,7 @@ import font from '../variables/font'
 import { secondary } from '../variables/colors'
 
 export default css`
-.root {
+.item-data {
   font-family: ${ font };
   font-size: 12px;
   font-weight: 200;

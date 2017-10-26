@@ -1,3 +1,5 @@
+import { big } from '../variables/layout-spacing'
+
 import css from 'styled-jsx/css'
 
 export default css`
@@ -5,7 +7,6 @@ export default css`
   position: relative;
   height: 50px;
   width: 50px;
-  z-index: 0;
   left: 0;
   top: 0;
   opacity: 1;
