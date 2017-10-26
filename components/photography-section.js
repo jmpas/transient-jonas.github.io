@@ -2,20 +2,25 @@ import { Component } from 'react'
 import StackGrid from 'react-stack-grid'
 import sizeMe from 'react-sizeme'
 import SecondaryTitle from  './secondary-title'
-import Link from './link'
+import PhotoItem from  './photo-item'
 
 import styles from '../styles/pages/photography'
+import fadeIn from '../styles/fade-in'
 
 class PhotographySection extends Component {
   constructor(props) {
     super(props);
-    console.log(props.photos)
   }
   render() {
+    setTimeout(() => this.forceUpdate(), 0)
     return (
       <section className='photography-page'>
         <StackGrid columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' }>
-          { this.props.photos.map((photo, idx) => <Link key={ idx } href={ `https://500px.com/${photo.url}` } middleware={ this.props.startTransition }><img src={ photo.image_url } /></Link>) }
+          {
+            this.props.photos.map((photo, idx) => (
+              <PhotoItem key={ idx } url={ photo.url } imgUrl={ photo.image_url } startTransition={ this.props.startTransition } />
+            ))
+          }
         </StackGrid>
         <style jsx>{ styles }</style>
       </section>
