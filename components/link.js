@@ -11,7 +11,7 @@ function onClickHandler (href, as, middleware, delay, sameRouteFallback) {
 }
 
 export default ({ children, href, as, middleware, delay, sameRouteFallback }) => (
-  <a href='#' onClick={ onClickHandler(href, as, middleware, delay, sameRouteFallback) }>
+  <a href={ href } onClick={ onClickHandler(href, as, middleware, delay, sameRouteFallback) }>
     { children }
   </a>
 )
