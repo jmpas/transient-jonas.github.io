@@ -51,7 +51,7 @@ export default class extends Component {
         ...this.state,
         step: 2
       })
-    }, 1000))
+    }, 2000))
 
     this.interval = setInterval(() => {
       this.setState({
@@ -64,7 +64,7 @@ export default class extends Component {
           ...this.state,
           step: 2
         })
-      }, 3000))
+      }, 4000))
     }, 6000)
   }
 
