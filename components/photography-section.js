@@ -12,10 +12,9 @@ class PhotographySection extends Component {
     super(props);
   }
   render() {
-    setTimeout(() => this.forceUpdate(), 0)
     return (
       <section className='photography-page'>
-        <StackGrid columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' }>
+        <StackGrid columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' } monitorImagesLoaded={ true }>
           {
             this.props.photos.map((photo, idx) => (
               <PhotoItem key={ idx } url={ photo.url } imgUrl={ photo.image_url } startTransition={ this.props.startTransition } />
