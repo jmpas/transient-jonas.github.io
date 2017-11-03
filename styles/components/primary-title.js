@@ -9,4 +9,5 @@ export default css`
   color: ${ primary };
   font-size: ${ primarySize };
   font-weight: ${ primaryWeight };
+  margin-top: 0;
 }`

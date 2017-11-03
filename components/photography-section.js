@@ -3,6 +3,7 @@ import StackGrid from 'react-stack-grid'
 import sizeMe from 'react-sizeme'
 import SecondaryTitle from  './secondary-title'
 import PhotoItem from  './photo-item'
+import PrimaryTitle from  '../components/primary-title'
 
 import styles from '../styles/pages/photography'
 import fadeIn from '../styles/fade-in'
@@ -14,6 +15,7 @@ class PhotographySection extends Component {
   render() {
     return (
       <section className='photography-page'>
+        <PrimaryTitle>Memories</PrimaryTitle>
         <StackGrid columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' } monitorImagesLoaded={ true }>
           {
             this.props.photos.map((photo, idx) => (
