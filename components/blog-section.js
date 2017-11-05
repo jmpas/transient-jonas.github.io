@@ -1,14 +1,15 @@
 import PostItem from '../components/post-item'
-import SecondaryTitle from  '../components/secondary-title'
+import PrimaryTitle from  '../components/primary-title'
 
 import styles from '../styles/pages/index'
 
 export default ({ posts, startTransition }) => (
   <section className='index-page'>
-    <SecondaryTitle>Articles</SecondaryTitle>
-    <br/>
-    <br/>
+    <PrimaryTitle>
+      <strong className='text-effect'>Knowledge</strong> worth sharing
+    </PrimaryTitle>
     <ul className='post-list'>{ posts.map((post, idx) => <PostItem { ...post } key={ idx } startTransition={ startTransition } />) }</ul>
     <style jsx>{ styles }</style>
+    <style jsx>{ textEffect }</style>
   </section>
 )

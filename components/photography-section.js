@@ -15,7 +15,7 @@ class PhotographySection extends Component {
   render() {
     return (
       <section className='photography-page'>
-        <PrimaryTitle>Memories</PrimaryTitle>
+        <PrimaryTitle><strong>Memories</strong> worth sharing</PrimaryTitle>
         <StackGrid columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' } monitorImagesLoaded={ true }>
           {
             this.props.photos.map((photo, idx) => (
