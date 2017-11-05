@@ -110,7 +110,7 @@ export default class extends Component {
 
     return (
       <Link href='/' middleware={ this.props.startTransition } delay={ 1000 }>
-        <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' } root ${ modifier }`}>
+        <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' } root ${ modifier } ${ shape }`}>
           {
             structure.map((item, i) => (
               <div key={ i } className={`${ shape }-piece polygon-${ ++i } polygon ${( item.modifier || '' )} step-${( this.state.step || '' )}`}></div>
