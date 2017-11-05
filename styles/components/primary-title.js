@@ -11,4 +11,5 @@ export default css`
   font-size: ${ primarySize };
   font-weight: ${ primaryWeight };
   margin: 0 0 ${ medium }px 0;
+  overflow: hidden;
 }`

@@ -7,6 +7,7 @@ import PrimaryTitle from  '../components/primary-title'
 
 import styles from '../styles/pages/photography'
 import fadeIn from '../styles/fade-in'
+import textEffect from '../styles/text-effect'
 
 class PhotographySection extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class PhotographySection extends Component {
   render() {
     return (
       <section className='photography-page'>
-        <PrimaryTitle><strong>Memories</strong> worth sharing</PrimaryTitle>
+        <PrimaryTitle><strong className='text-effect'>Memories</strong> worth sharing</PrimaryTitle>
         <StackGrid columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' } monitorImagesLoaded={ true }>
           {
             this.props.photos.map((photo, idx) => (
@@ -24,6 +25,7 @@ class PhotographySection extends Component {
           }
         </StackGrid>
         <style jsx>{ styles }</style>
+        <style jsx>{ textEffect }</style>
       </section>
     )
   }
