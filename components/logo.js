@@ -3,7 +3,6 @@ import Link from './link'
 
 import mainStyle from '../styles/logo/base'
 import polygonsTransitions from '../styles/logo/polygons-transitions'
-import shimmeringAnimation from '../styles/logo/shrimmering-animation'
 import polygons from '../styles/logo/polygons'
 import cloudSteps from  '../styles/logo/clouds'
 import fadeIn from '../styles/fade-in'
@@ -120,21 +119,13 @@ export default class extends Component {
           <style global jsx>{ mainStyle }</style>
           <style global jsx>{`
             ${ polygons(structureManager.logo(), 'logo') }
-            ${ shimmeringAnimation(structureManager.logo(), 'logo') }
             ${ polygonsTransitions(structureManager.logo(), 'logo') }
 
             ${ polygons(structureManager.photography(), 'photography') }
-            ${ shimmeringAnimation(structureManager.photography(), 'photography') }
-            ${ polygonsTransitions(structureManager.photography(), 'photography') }
             ${ cloudSteps }
 
             ${ polygons(structureManager.experiment(), 'experiment') }
-            ${ shimmeringAnimation(structureManager.experiment(), 'experiment') }
-            ${ polygonsTransitions(structureManager.experiment(), 'experiment') }
-
             ${ polygons(structureManager.blog(), 'blog') }
-            ${ shimmeringAnimation(structureManager.blog(), 'blog') }
-            ${ polygonsTransitions(structureManager.blog(), 'blog') }
 
             .polygon {
               position: absolute;

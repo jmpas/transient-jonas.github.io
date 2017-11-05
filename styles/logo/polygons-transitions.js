@@ -6,8 +6,8 @@ export default structure => (
     const ct = i * .02
 
     return acc += `
-.polygon-${ i } {
-  transition: -webkit-clip-path ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1), background-color ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1);
-}\r\n\r\n`
-  }, ``)
+      .polygon-${ i } {
+        transition: -webkit-clip-path ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1), background-color ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1);
+      }\r\n`
+  }, '')
 )
