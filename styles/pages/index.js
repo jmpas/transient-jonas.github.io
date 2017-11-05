@@ -3,12 +3,12 @@ import { medium, big } from '../variables/layout-spacing'
 
 export default css`
 .index-page {
-  padding: ${ medium }px ${ big }px;
+  padding: 0 ${ big }px;
 }
 
 @media (max-width: 500px) {
   .index-page {
-    padding: ${ medium }px 30px;
+    padding: 0 30px;
   }
 }
 

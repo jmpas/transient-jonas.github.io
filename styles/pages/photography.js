@@ -7,12 +7,12 @@ export default css`
 }
 
 .photography-page {
-  padding: ${ medium }px ${ big }px;
+  padding: 0 ${ big }px;
 }
 
 @media (max-width: 500px) {
   .photography-page {
-    padding: ${ medium }px 30px;
+    padding: 0 30px;
   }
 }
 
