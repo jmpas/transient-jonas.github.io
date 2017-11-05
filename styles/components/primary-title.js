@@ -2,6 +2,7 @@ import css from 'styled-jsx/css'
 
 import font, { primarySize, primaryWeight } from '../variables/font'
 import { primary } from '../variables/colors'
+import { medium } from '../variables/layout-spacing'
 
 export default css`
 .primary-title {
@@ -9,5 +10,5 @@ export default css`
   color: ${ primary };
   font-size: ${ primarySize };
   font-weight: ${ primaryWeight };
-  margin-top: 0;
+  margin: 0 0 ${ medium }px 0;
 }`
