@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { medium, big } from '../variables/layout-spacing'
+import { medium, big, small } from '../variables/layout-spacing'
 
 export default css`
 .index-page {
@@ -8,7 +8,7 @@ export default css`
 
 @media (max-width: 500px) {
   .index-page {
-    padding: 0 30px;
+    padding: 0 ${ small }px;
   }
 }
 

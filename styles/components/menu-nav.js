@@ -22,4 +22,10 @@ export default css`
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+@media (max-width: 780px) {
+  .menu-nav ul {
+    flex-direction: column;
+  }
 }`

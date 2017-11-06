@@ -43,4 +43,21 @@ export default css`
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@media (max-width: 780px) {
+  .logo.nav-mode {
+    width: 200px;
+    height: 200px;
+  }
+
+  .logo.nav-mode.blog {
+    width: 300px;
+    height: 300px;
+  }
+
+  .logo.nav-mode.photography {
+    width: 250px;
+    height: 250px;
+  }
 }`

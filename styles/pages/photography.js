@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { medium, big } from '../variables/layout-spacing'
+import { medium, big, small } from '../variables/layout-spacing'
 
 export default css`
 :global(.photography-page) {
@@ -12,11 +12,11 @@ export default css`
 
 @media (max-width: 500px) {
   .photography-page {
-    padding: 0 30px;
+    padding: 0 ${ small }px;
   }
-}
 
-.photo-list {
-  column-count: 2;
-  column-gap: 1em;
+  :global(.photo-list) {
+    margin-left: -${ small }px;
+    width: 100vw;
+  }
 }`

@@ -2,9 +2,27 @@ import css from 'styled-jsx/css'
 
 import font from '../variables/font'
 import { primary } from '../variables/colors'
-import { big, medium } from '../variables/layout-spacing'
+import { big, medium, small } from '../variables/layout-spacing'
 
 export default css`
+@media (min-width: 500px) {
+  .post-container pre {
+    padding: 50px 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .post-container {
+    padding: 0 ${ small }px;
+  }
+
+  .post-container pre {
+    margin-left: -${ small }px;
+    padding: 50px ${ small }px;
+    width: 100vw;
+  }
+}
+
 .post-container p {
   font-family: ${ font };
   font-size: 20px;
@@ -101,10 +119,6 @@ export default css`
 
 .post-container blockquote p {
   padding: 0;
-}
-
-.post-container pre {
-  padding: 50px 0px;
 }
 
 .post-container pre code {

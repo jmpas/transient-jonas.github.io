@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-import { medium, big } from '../variables/layout-spacing'
+import { medium, big, small } from '../variables/layout-spacing'
 
 export default css`
 .topbar {
@@ -11,6 +11,6 @@ export default css`
 
 @media (max-width: 500px) {
   .topbar {
-    padding: ${ medium }px 30px;
+    padding: ${ medium }px ${ small }px;
   }
 }`
