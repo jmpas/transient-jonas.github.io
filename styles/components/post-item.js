@@ -2,10 +2,9 @@ import css from 'styled-jsx/css'
 
 export default css`
 .post-item {
-  height: 200px;
   width: 350px;
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 1100px) and (max-width: 1190px) {
