@@ -34,11 +34,7 @@ export default css`
   transform: translateX(-50%);
   transition: background-size 0.4s ease-out, transform 0.4s ease-out;
 
-  animation-delay: .5s;
-  animation-duration: 1s;
-  animation-name: blockEffect;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(.7, .3, 0, 1);
+  animation: 1s cubic-bezier(.7, .3, 0, 1) .5s forwards blockEffect, .8s ease-out 2s infinite alternate blinkEffect;
 }
 
 @keyframes blockEffect {
@@ -46,6 +42,15 @@ export default css`
     transform: translateX(-50%);
   }
   100% {
-    transform: translateX(-200%);
+    transform: translateX(-199.9%);
+  }
+}
+
+@keyframes blinkEffect {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }`
