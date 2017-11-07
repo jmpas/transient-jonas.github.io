@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-.root {
+.root, .fade-in {
   opacity: 0;
 
   animation: 2s fadeIn ease forwards;

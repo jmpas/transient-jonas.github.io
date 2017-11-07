@@ -1,25 +1,34 @@
 import css from 'styled-jsx/css'
-import { medium, big } from '../variables/layout-spacing'
+import { medium, big, small } from '../variables/layout-spacing'
 
 export default css`
-:global(.page-container) {
-  overflow-y: hidden !important;
-}
-
-:global(.logo:not(.nav-mode)) {
-  margin-left: 400px;
-}
-
 .about-page {
-  padding: 0 0 0 ${ big + 400 }px;
+  padding: 0 ${ big }px 0 ${ big + 150 }px;
 }
 
 .intro-text {
-  width: 400px;
+  display: flex;
+}
+
+.main-intro {
+  flex-basis: 50%;
+  padding: 0 ${ medium }px 0 0;
+}
+
+.about-intro {
+  flex-basis: 50%;
 }
 
 @media (max-width: 500px) {
+  .intro-text {
+    flex-direction: column;
+  }
+
+  .main-intro {
+    padding: 0 0 ${ medium }px 0;
+  }
+
   .about-page {
-    padding: ${ medium }px 30px;
+    padding: ${ medium }px ${ small }px;
   }
 }`
