@@ -20,10 +20,14 @@ export default css`
 }
 
 .logo.nav-mode.photography {
-  width: 550px;
-  height: 550px;
+  width: 450px;
+  height: 450px;
 
   transition width 1s .2s cubic-bezier(.7, .3, 0, 1), height 1s .2s cubic-bezier(.7, .3, 0, 1);
+}
+
+.logo.nav-mode.photography .polygon {
+  border-radius: 50%;
 }
 
 .logo.nav-mode {
@@ -57,7 +61,7 @@ export default css`
   }
 
   .logo.nav-mode.photography {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
   }
 }`

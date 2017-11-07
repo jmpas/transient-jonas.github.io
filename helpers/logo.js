@@ -34,27 +34,23 @@ export const structureManager = {
   },
   photography() {
     return [
-      // Distant mountains
-      { pos: [[-22, 70], [18, 40], [110, 90]], color: '#eaeaea', shrimmer: true },
-      { pos: [[-15, 100], [60, 38], [140, 90]], color: '#eaeaea', shrimmer: true },
+      { pos: [[30, 0], [45, 56], [63, 0]], color: '#333' },
+      { pos: [[0, 0], [44, 56], [29, 0]], color: '#333' },
 
-      // high mountain 1
-      { pos: [[8, 100], [30, 30], [60, 100]], color: '#111' },
-      { pos: [[23.5, 50], [30, 30], [42.8, 60]], color: '#aaa', shrimmer: true },
-      // high mountain 2
-      { pos: [[60, 100], [80, 35], [110, 100]], color: '#111' },
-      { pos: [[76.7, 45], [80, 35], [88, 52]], color: '#aaa', shrimmer: true },
+      { pos: [[64, 0], [47, 52], [99, 0]], color: '#333' },
+      { pos: [[47, 54], [100, 32], [100, 0]], color: '#333' },
 
-      // Small mountain 1
-      { pos: [[-15, 100], [10, 50], [25, 100]], color: '#333' },
-      { pos: [[4.8, 60], [10, 50], [16, 70]], color: '#aaa', shrimmer: true },
-      // Small mountain 2
-      { pos: [[40, 100], [60, 60], [80, 100]], color: '#333' },
-      { pos: [[52.4, 75], [60, 60], [72.6, 85]], color: '#aaa', shrimmer: true },
+      { pos: [[100, 34], [50, 54], [100, 60]], color: '#333' },
+      { pos: [[100, 62], [52, 55], [100, 99]], color: '#333' },
 
-      // Clouds
-      { pos: [[50, 34], [20, 37], [95, 37]], color: '#eaeaea', shrimmer: true, modifier: 'cloud' },
-      { pos: [[50, 28], [20, 31], [95, 31]], color: '#eaeaea', shrimmer: true, modifier: 'cloud' },
+      { pos: [[99, 100], [51, 55], [80, 100]], color: '#333' },
+      { pos: [[79, 100], [52, 58], [39, 100]], color: '#333' },
+
+      { pos: [[0, 100], [50, 60], [38, 100]], color: '#333' },
+      { pos: [[48, 60.5], [0, 63], [0, 99]], color: '#333' },
+
+      { pos: [[0, 62], [45, 60], [0, 35]], color: '#333' },
+      { pos: [[0, 34], [45, 59], [0, 2]], color: '#333' },
     ]
   },
   experiment() {

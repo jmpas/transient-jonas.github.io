@@ -7,7 +7,7 @@ export default structure => (
 
     return acc += `
       .polygon-${ i } {
-        transition: -webkit-clip-path ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1), background-color ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1);
+        transition: -webkit-clip-path ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1), background-color ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1), border-radius ${ s }s ${ t }s cubic-bezier(.7, .3, 0, 1);
       }\r\n`
   }, '')
 )

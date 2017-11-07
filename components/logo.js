@@ -81,23 +81,6 @@ export default class extends Component {
     })
   }
 
-  transformLogo() {
-    this.setState({
-      ...this.state,
-      shape: 'logo',
-      step: null,
-      hasAnimation: false
-    })
-  }
-
-  transformPhotography() {
-    this.setState({
-      ...this.state,
-      shape: 'photography',
-      hasAnimation: true
-    })
-  }
-
   componentWillUnmount() {
     this.clearAnimationInterval()
   }
