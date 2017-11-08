@@ -19,7 +19,7 @@ export default css`
   flex-basis: 50%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   .intro-text {
     flex-direction: column;
   }
@@ -27,7 +27,9 @@ export default css`
   .main-intro {
     padding: 0 0 ${ medium }px 0;
   }
+}
 
+@media (max-width: 500px) {
   .about-page {
     padding: ${ medium }px ${ small }px;
   }

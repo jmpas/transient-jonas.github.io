@@ -2,7 +2,7 @@ import css from 'styled-jsx/css'
 
 export default css`
 .profile-picture {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: -1;
@@ -16,10 +16,6 @@ export default css`
 }
 
 @media (max-width: 500px) {
-  .profile-picture {
-    position: fixed;
-  }
-
   .profile-picture img {
     opacity: 0.2;
   }
