@@ -17,7 +17,12 @@ class PhotographySection extends Component {
     return (
       <section className='photography-page'>
         <PrimaryTitle><strong className='text-effect'>Memories</strong> worth sharing</PrimaryTitle>
-        <StackGrid className='photo-list' columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' } monitorImagesLoaded={ true }>
+        <StackGrid
+          className='photo-list'
+          columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' }
+          monitorImagesLoaded={ true }
+          duration={ 0 }
+        >
           {
             this.props.photos.map((photo, idx) => (
               <PhotoItem key={ idx } url={ photo.url } imgUrl={ photo.image_url } startTransition={ this.props.startTransition } />
