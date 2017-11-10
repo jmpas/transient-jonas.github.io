@@ -21,7 +21,7 @@ class PhotographySection extends Component {
           className='photo-list'
           columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' }
           monitorImagesLoaded={ true }
-          duration={ 0 }
+          duration={ 1500 }
         >
           {
             this.props.photos.map((photo, idx) => (
