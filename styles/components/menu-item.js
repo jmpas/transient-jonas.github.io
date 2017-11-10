@@ -16,7 +16,7 @@ export default css`
 }
 
 .menu-item:hover {
-  color: #333;
+  color: #555;
   transition: background .5s cubic-bezier(.7, .3, 0, 1), color .5s cubic-bezier(.7, .3, 0, 1);
 }
 
@@ -31,7 +31,7 @@ export default css`
 .menu-item .title .line {
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, #333, #333) no-repeat 0 0;
+  background: linear-gradient(to right, #555, #555) no-repeat 0 0;
   background-size: 0% 2px;
   transition: background-size 0.4s ease-out;
 }
