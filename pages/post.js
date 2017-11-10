@@ -8,7 +8,8 @@ const PostPage = ({ post, metaData, date }) => (
           date={ metaData.date }
           formattedDate={ date }
           body={ post }
-          slug={ metaData.slug } />
+          slug={ metaData.slug }
+          tags={ metaData.tags } />
   </Page>
 )
 

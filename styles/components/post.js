@@ -151,4 +151,16 @@ export default css`
   max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.share {
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+  margin-top: 55px;
+}
+
+.share svg {
+  margin: 2rem .938rem;
+  width: 35px;
+  height: 35px;
 }`
