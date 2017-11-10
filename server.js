@@ -6,6 +6,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 const { getMarkdownFrom, getPostList, exists, sortPosts, formatDate } = require('./helpers/post')
+const { getExperimentsList } = require('./helpers/experiments')
 
 module.exports = app.prepare()
   .then(() => {
@@ -48,6 +49,35 @@ module.exports = app.prepare()
       if (!(await exists(slug))) return handle(req, res)
 
       const actualPage = '/post'
+      return app.render(req, res, actualPage, { slug })
+    })
+
+    server.get('/api/experiment/:slug', async (req, res) => {
+      const { slug: fileName } = req.params
+      const slug = fileName.replace('.json', '')
+      const experiments = await getExperimentsList()
+
+      const experimentData = experiments.find(experiment => experiment.slug === slug)
+
+      if (!experimentData) return handle(req, res)
+
+      return res.json({
+        ...experimentData
+      })
+    })
+
+    server.get('/api/experiments.json', async (req, res) => {
+      const experimentsData = await getExperimentsList()
+
+      res.json({ experiments: experimentsData })
+    })
+
+    server.get('/experiment/:slug', async (req, res) => {
+      const { slug } = req.params
+
+      if (!(await exists(slug))) return handle(req, res)
+
+      const actualPage = '/experiment'
       return app.render(req, res, actualPage, { slug })
     })
 

@@ -8,7 +8,7 @@ export default ({ show, onChange, startTransition, closeMenu }) => (
     <ul>
       <MenuItem onHover={ onChange } slug='blog' href='/' middleware={ startTransition } sameRouteFallback={ closeMenu }>Articles</MenuItem>
       <MenuItem onHover={ onChange } slug='photography' href='/photography' middleware={ startTransition } sameRouteFallback={ closeMenu }>Photography</MenuItem>
-      <MenuItem onHover={ onChange } slug='experiment'>Experiments</MenuItem>
+      <MenuItem onHover={ onChange } slug='experiment' href='/experiments' middleware={ startTransition } sameRouteFallback={ closeMenu }>Experiments</MenuItem>
       <MenuItem onHover={ onChange } slug='contact' href='/about' middleware={ startTransition } sameRouteFallback={ closeMenu }>Contact</MenuItem>
     </ul>
     <style jsx>{ styles }</style>

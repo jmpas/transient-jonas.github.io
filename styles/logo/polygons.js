@@ -3,7 +3,7 @@ export default (structure, shape) => (
     const values = item.pos.reduce((acc, set) => [...acc, `${ set[0] }% ${ set[1] }%`], [])
 
     return acc += `.${ shape }-piece.polygon-${ ++i } {
-  -webkit-clip-path: polygon(${ values.join(', ') });
+  clip-path: polygon(${ values.join(', ') });
   background: ${ (item.color || 'inherit') };
 }\r\n`
   }, ``)

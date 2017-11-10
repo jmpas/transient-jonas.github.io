@@ -34,37 +34,37 @@ export default css`
   opacity: 1;
   background: #fff;
 
-  transition: -webkit-clip-path .6s .3s cubic-bezier(.7, .3, 0, 1);
+  transition: clip-path .6s .3s cubic-bezier(.7, .3, 0, 1);
 }
 
 .overlay.visible .polygon {
-  transition: -webkit-clip-path .6s .6s cubic-bezier(.7, .3, 0, 1);
+  transition: clip-path .6s .6s cubic-bezier(.7, .3, 0, 1);
 }
 
 .overlay .polygon:nth-child(1) {
-  -webkit-clip-path: polygon(0% 0%, 50% 0, 50% 0%);
+  clip-path: polygon(0% 0%, 50% 0, 50% 0%);
 }
 .overlay.visible .polygon:nth-child(1) {
-  -webkit-clip-path: polygon(0% 0%, 50% 100%, 50% 0%);
+  clip-path: polygon(0% 0%, 50% 100%, 50% 0%);
 }
 
 .overlay .polygon:nth-child(2) {
-  -webkit-clip-path: polygon(0% 100%, 0% 100%, 50% 100%);
+  clip-path: polygon(0% 100%, 0% 100%, 50% 100%);
 }
 .overlay.visible .polygon:nth-child(2) {
-  -webkit-clip-path: polygon(0% 100%, 0% 0%, 50% 100%);
+  clip-path: polygon(0% 100%, 0% 0%, 50% 100%);
 }
 
 .overlay .polygon:nth-child(3) {
-  -webkit-clip-path: polygon(100% 0%, 50% 0%, 50% 0%);
+  clip-path: polygon(100% 0%, 50% 0%, 50% 0%);
 }
 .overlay.visible .polygon:nth-child(3) {
-  -webkit-clip-path: polygon(100% 0%, 50% 100%, 50% 0%);
+  clip-path: polygon(100% 0%, 50% 100%, 50% 0%);
 }
 
 .overlay .polygon:nth-child(4) {
-  -webkit-clip-path: polygon(100% 100%, 100% 100%, 50% 100%);
+  clip-path: polygon(100% 100%, 100% 100%, 50% 100%);
 }
 .overlay.visible .polygon:nth-child(4) {
-  -webkit-clip-path: polygon(100% 100%, 100% 0%, 50% 100%);
+  clip-path: polygon(100% 100%, 100% 0%, 50% 100%);
 }`
