@@ -6,7 +6,7 @@ const metaData = {
   description: 'Articles about web development'
 }
 
-const Index = ({ posts, startTransition }) => (
+const Index = ({ posts }) => (
   <Page meta={metaData}>
     <BlogSection className='index-page' posts={ posts } />
   </Page>
