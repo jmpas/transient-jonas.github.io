@@ -12,20 +12,24 @@ import fadeIn from '../styles/fade-in'
 
 export default ({ startTransition }) => (
   <section className='about-page'>
-    <PrimaryTitle>Hi, {`I'm Jonas`}</PrimaryTitle>
-    <PrimaryTitle><span className='text-effect'>I unfold ideas into code</span></PrimaryTitle>
     <div className='intro-text'>
       <div className='main-intro'>
-        <Paragraph>in case you like labels, {`I'm`} listing a few of them that would suit me well, like...</Paragraph>
+        <PrimaryTitle>Hi, {`I'm Jonas`}</PrimaryTitle>
+        <PrimaryTitle><span className='text-effect'>I unfold ideas into code</span></PrimaryTitle>
+        <Paragraph>in case you like labels, I'm listing a few of them that would suit me well, like...</Paragraph>
         <br/>
         <Paragraph>- software engineer</Paragraph>
         <Paragraph>- web developer</Paragraph>
-        <Paragraph>- creative coder</Paragraph>
-        <Paragraph>- amateur photographer</Paragraph>
+        <Paragraph>- amateur creative coder</Paragraph>
         <Paragraph>- traveller</Paragraph>
+        <Paragraph>- amateur photographer</Paragraph>
+        <Paragraph>- vegetarian</Paragraph>
+        <Paragraph>- earther</Paragraph>
       </div>
       <div className='about-intro'>
-        <Paragraph>Originally born in Rio, Brazil, currently working remotely as a member of the Toptal core engineering team.</Paragraph>
+        <PrimaryTitle>I like cold weather</PrimaryTitle>
+        <PrimaryTitle>and...</PrimaryTitle>
+        <Paragraph>I'm originally born in Rio, Brazil, currently working remotely as a member of the Toptal core engineering team and travelling a lot in the meantime, mainly to cold places.</Paragraph>
         <br/>
         <Paragraph>My main focus throughout my career has been web technologies, both backend and front-end, working on software architecture development for custom needs and also collaborating with designers on the creative process.</Paragraph>
         <br/>
@@ -37,6 +41,16 @@ export default ({ startTransition }) => (
           <Link href='https://www.linkedin.com/in/jonasmendes' middleware={ startTransition } delay={ 1000 }> linkedin </Link>
           /
           <a href="mailto:jonas@nipher.io"> e-mail</a>
+        </div>
+        <br/>
+        <Paragraph>You can also have a look at what I've been up to lately:</Paragraph>
+        <br/>
+        <div className='links fade-in'>
+          <Link href='https://github.com/nipher' middleware={ startTransition } delay={ 1000 }>github </Link>
+          /
+          <Link href='https://500px.com/nipher' middleware={ startTransition } delay={ 1000 }> 500px </Link>
+          /
+          <Link href='https://instagram.com/nipher_jonas' middleware={ startTransition } delay={ 1000 }> instagram </Link>
         </div>
       </div>
     </div>
