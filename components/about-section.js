@@ -29,7 +29,7 @@ export default ({ startTransition }) => (
       <div className='about-intro'>
         <PrimaryTitle>I like cold weather</PrimaryTitle>
         <PrimaryTitle>and...</PrimaryTitle>
-        <Paragraph>I'm originally born in Rio, Brazil, currently working remotely as a member of the Toptal core engineering team and travelling a lot in the meantime, mainly to cold places.</Paragraph>
+        <Paragraph>I'm originally from Rio, Brazil, currently working remotely as a member of the Toptal core engineering team and travelling a lot in the meantime, mostly to cold places.</Paragraph>
         <br/>
         <Paragraph>My main focus throughout my career has been web technologies, both backend and front-end, working on software architecture development for custom needs and also collaborating with designers on the creative process.</Paragraph>
         <br/>
