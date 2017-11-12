@@ -2,8 +2,8 @@ import Link from './link'
 
 import styles from '../styles/components/menu-item'
 
-export default ({ onHover, children, slug, href, middleware, sameRouteFallback }) => {
-  return <li className='menu-item' onMouseEnter={ (() => onHover(slug) ) }>
+export default ({ onHover, children, slug, href, middleware, sameRouteFallback, modifier }) => {
+  return <li className={`menu-item ${ modifier }`} onMouseEnter={ (() => onHover(slug) ) }>
     <Link { ...{ href, sameRouteFallback } } middleware={ middleware } delay={ 1900 }>
       <h2 className='title'>
         { children }

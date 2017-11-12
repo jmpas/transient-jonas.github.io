@@ -20,6 +20,30 @@ export default css`
   transition: background .5s cubic-bezier(.7, .3, 0, 1), color .5s cubic-bezier(.7, .3, 0, 1);
 }
 
+.menu-item.wip:hover::before {
+  opacity: 1;
+  transition: opacity .5s cubic-bezier(.7, .3, 0, 1);
+}
+
+.menu-item.wip::before {
+  content: 'Coming soon';
+  padding: 10px 10px;
+  width: 60%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 21px;
+  font-family: ${ font };
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  z-index: 1;
+  transition: opacity .5s cubic-bezier(.7, .3, 0, 1);
+  background: #333;
+}
+
 .menu-item .title {
   position: absolute;
   top: 50%;
