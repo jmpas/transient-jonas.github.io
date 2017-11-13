@@ -33,24 +33,20 @@ export default ({ startTransition }) => (
         <br/>
         <Paragraph>My main focus throughout my career has been web technologies, both backend and front-end, working on software architecture development for custom needs and also collaborating with designers on the creative process.</Paragraph>
         <br/>
-        <Paragraph> If you want to know more about me, feel free to get in touch via email, linkedin or twitter, {`I'm`} always more than happy to chat.</Paragraph>
+        <Paragraph> If you want to know more about me or get in touch:</Paragraph>
         <br/>
         <div className='links fade-in'>
           <Link href='https://twitter.com/nipher_jonas' middleware={ startTransition } delay={ 1000 }>twitter </Link>
           /
-          <Link href='https://www.linkedin.com/in/jonasmendes' middleware={ startTransition } delay={ 1000 }> linkedin </Link>
-          /
-          <a href="mailto:jonas@nipher.io"> e-mail</a>
-        </div>
-        <br/>
-        <Paragraph>You can also have a look at what I've been up to lately:</Paragraph>
-        <br/>
-        <div className='links fade-in'>
-          <Link href='https://github.com/nipher' middleware={ startTransition } delay={ 1000 }>github </Link>
+          <Link href='https://github.com/nipher' middleware={ startTransition } delay={ 1000 }> github </Link>
           /
           <Link href='https://500px.com/nipher' middleware={ startTransition } delay={ 1000 }> 500px </Link>
           /
           <Link href='https://instagram.com/nipher_jonas' middleware={ startTransition } delay={ 1000 }> instagram </Link>
+          /
+          <Link href='https://www.linkedin.com/in/jonasmendes' middleware={ startTransition } delay={ 1000 }> linkedin </Link>
+          /
+          <a href="mailto:jonas@nipher.io"> e-mail</a>
         </div>
       </div>
     </div>
