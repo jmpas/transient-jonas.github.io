@@ -26,9 +26,9 @@ export default props => {
     <meta property="og:site_name" content={ siteTitle } />
 
     <meta name="google-site-verification" content="d9Yf-wvazE53l5r9utc7O68jw0ynDML0gaw38oBu6RI" />
-    <meta itemprop="name" content={ props.title } />
-    <meta itemprop="description" content={ props.description } />
-    <meta itemprop="image" content={ pageImage } />
+    <meta itemProp="name" content={ props.title } />
+    <meta itemProp="description" content={ props.description } />
+    <meta itemProp="image" content={ pageImage } />
 
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="57x57" href="/static/apple-touch-icon-57x57.png" />
