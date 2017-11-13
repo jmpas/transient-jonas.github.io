@@ -7,14 +7,15 @@ module.exports = {
     const { posts: postsList } = require('./out/api/posts')
     const experimentsList = await getExperimentsList()
 
-    const experiments = experimentsList.map(experiment => (
+    const experiments = experimentsList.reduce((acc, experiment) => (
       {
+        ...acc,
         [`/experiment/${experiment.slug}`]: {
           page: `/experiment/${experiment.slug}`,
-          query: { ...experiment }
+          query: { ...experiment, build: true }
         }
       }
-    ))
+    ), {})
 
     const posts = postsList.reduce((pages, data) => {
       const post = require(`./out/api/post/${data.slug}`)
@@ -31,6 +32,10 @@ module.exports = {
     const pages = {
       '/': {
         page: '/',
+        query: { build: true }
+      },
+      '/blog': {
+        page: '/blog',
         query: { posts: postsList, build: true }
       },
       '/photography': {

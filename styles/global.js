@@ -12,6 +12,6 @@ ul {
   padding: 0;
 }
 
-.page-content.hidden {
+.hidden {
   display: none;
 }`

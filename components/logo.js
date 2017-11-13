@@ -91,7 +91,7 @@ export default class extends Component {
     const modifier = this.props.navMode ? '' : this.props.modifier
 
     return (
-      <Link href='/' middleware={ this.props.startTransition } delay={ 1000 }>
+      <Link href='/blog' middleware={ this.props.startTransition } delay={ 1000 }>
         <div className={ `logo ${ this.props.navMode ? 'nav-mode' : '' } root ${ modifier } ${ shape }`}>
           {
             structure.map((item, i) => (

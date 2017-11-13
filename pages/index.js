@@ -1,31 +1,17 @@
 import Page from '../layouts/main'
-import BlogSection from  '../components/blog-section'
 
 const metaData = {
-  title: 'Nipher - Articles',
-  description: 'Articles about web development'
+  title: 'Nipher',
+  description: 'Web Development, amateur photography & code experiments'
 }
 
 const Index = ({ posts }) => (
-  <Page meta={metaData}>
-    <BlogSection className='index-page' posts={ posts } />
+  <Page meta={ metaData } isMenuOpen={ true } menuPageMode={ true }>
+    <style jsx>{`
+      :global(.overlay) {
+        transform: translateY(0) !important;
+      }
+    `}</style>
   </Page>
 )
-
-Index.getInitialProps = async ({ query, req }) => {
-	if (query.build && typeof window === 'undefined') return query
-
-  const postEndpoint = `/api/posts.json`
-  const fetch = await import('isomorphic-fetch')
-  let res = null
-
-  if (req) {
-    res = await fetch(`${req.protocol}://${req.get('host')}${postEndpoint}`)
-  } else {
-    res = await fetch(`${location.origin}${postEndpoint}`)
-  }
-
-  return await res.json()
-}
-
 export default Index
