@@ -46,8 +46,16 @@ export default ({ startTransition }) => (
           /
           <Link href='https://www.linkedin.com/in/jonasmendes' middleware={ startTransition } delay={ 1000 }> linkedin </Link>
           /
-          <a href="mailto:jonas@nipher.io"> e-mail</a>
+          <a href='mailto:jonas@nipher.io'> e-mail</a>
         </div>
+        <br/>
+        <Paragraph>GPG Public Key:</Paragraph>
+        <br/>
+        <Paragraph><a href='/static/nipher-public-key.asc'><code>get_key</code></a></Paragraph>
+        <br/>
+        <Paragraph>Fingerprint:</Paragraph>
+        <br/>
+        <Paragraph><code>3055 2FFF 8CE5 A81B 84E4  D436 36D6 ADCB A7FE 1C8F</code></Paragraph>
       </div>
     </div>
     <ProfilePicture />
