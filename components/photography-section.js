@@ -20,12 +20,18 @@ class PhotographySection extends Component {
         <StackGrid
           className='photo-list'
           columnWidth={ this.props.size.width <= 768 ? '100%' : '33.33%' }
-          monitorImagesLoaded={ true }
+          monitorImagesLoaded={ false }
           duration={ 1500 }
         >
           {
             this.props.photos.map((photo, idx) => (
-              <PhotoItem key={ idx } url={ photo.url } imgUrl={ photo.image_url } startTransition={ this.props.startTransition } />
+              <PhotoItem key={ idx }
+                         url={ photo.url }
+                         imgUrl={ photo.image_url }
+                         width={ photo.width }
+                         height={ photo.height }
+                         containerSize={ this.props.size.width - 140 }
+                         startTransition={ this.props.startTransition } />
             ))
           }
         </StackGrid>
