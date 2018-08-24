@@ -22,6 +22,7 @@
     "preact-compat": "^3.18.3",
     "random-float": "^1.0.0",
     "react": "^16.4.2",
+    "react-disqus-comments": "^1.2.0",
     "react-dom": "^16.4.2",
     "react-masonry-component": "^6.2.1",
     "react-sizeme": "^2.5.2",
