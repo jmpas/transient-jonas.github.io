@@ -1,19 +1,19 @@
 import Head from 'next/head'
 import { Component } from 'react'
-// import { initGA, logPageView } from '../helpers/analytics'
+import { initGA, logPageView } from '../helpers/analytics'
 
 const siteTitle = 'Nipher'
 const siteUrl = 'https://nipher.io'
 
 export default class extends Component {
-  // componentDidMount() {
-  //   if (!window.GA_INITIALIZED) {
-  //     initGA()
-  //     window.GA_INITIALIZED = true
-  //   }
+  componentDidMount() {
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
 
-  //   logPageView()
-  // }
+    logPageView()
+  }
 
   render() {
     const { title, description, url } = this.props
