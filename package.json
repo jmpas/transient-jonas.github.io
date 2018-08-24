@@ -2,7 +2,7 @@
   "name": "nipher",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
     "start": "next start"
   },
@@ -13,14 +13,20 @@
   "dependencies": {
     "@zeit/next-bundle-analyzer": "^0.1.1",
     "@zeit/next-preact": "0.0.7",
+    "date-fns": "^1.29.0",
+    "delaunay-triangulate": "^1.1.6",
+    "highlight.js": "^9.12.0",
     "next": "^6.1.1",
     "next-compose-plugins": "^2.1.1",
     "preact": "^8.3.1",
     "preact-compat": "^3.18.3",
+    "random-float": "^1.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-masonry-component": "^6.2.1",
     "react-sizeme": "^2.5.2",
-    "react-swipeable": "^4.3.0"
+    "react-swipeable": "^4.3.0",
+    "remarkable": "^1.7.1",
+    "remarkable-meta": "^1.0.1"
   }
 }
