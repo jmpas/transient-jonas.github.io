@@ -1,0 +1,1 @@
+{"experiments":[{"slug":"dark-crystal","date":"2018-01-31 00:40:43 -0300","title":"Dark Crystal","description":"A generative animated crystal which is generated using the Delaunay triangulation algorithm and Web Canvas API","pageImage":"/static/dark-crystal.jpg","tags":["generative","abstract","canvas"],"dateFormatted":"31 Jan 2018"}]}
