@@ -616,7 +616,7 @@ export default class extends Component {
         ...this.state,
         displayImg: true
       })
-    }, 2500)
+    }, 2000)
   }
 
   render() {

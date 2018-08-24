@@ -18,6 +18,8 @@
     "preact": "^8.3.1",
     "preact-compat": "^3.18.3",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "react-sizeme": "^2.5.2",
+    "react-swipeable": "^4.3.0"
   }
 }
