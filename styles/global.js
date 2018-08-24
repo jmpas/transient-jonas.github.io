@@ -34,4 +34,20 @@ html {
   .page-content {
     padding: 0 ${small}px ${medium}px ${small}px;
   }
+}
+
+.polygon {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  background: #333;
+}
+
+.polygon::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0); top: 0; left: 0;
+  position: absolute;
 }`
