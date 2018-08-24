@@ -15,18 +15,18 @@ export default css`
   height: 100vh;
   opacity: 0;
 
-  transition: 4s opacity cubic-bezier(.7, .3, 0, 1);
+  transition: 2.5s opacity cubic-bezier(.7, .3, 0, 1);
 }
 
 .profile-picture img.visible {
   opacity: .8;
 
-  transition: 4s opacity cubic-bezier(.7, .3, 0, 1);
+  transition: 2.5s opacity cubic-bezier(.7, .3, 0, 1);
 }
 
 @media (max-width: 500px) {
   .profile-picture img.visible {
-    opacity: .2;
-    transition: 4s opacity cubic-bezier(.7, .3, 0, 1);
+    opacity: .4;
+    transition: 2.5s opacity cubic-bezier(.7, .3, 0, 1);
   }
 }`
