@@ -1,0 +1,14 @@
+{
+  "slug": "dying-soul",
+  "url": "/static/dying-soul",
+  "date": "2018-11-26 00:40:43 -0300",
+  "title": "Dying Soul",
+  "description": "A 3D sphere reacting realtime to one of Roly Porter's tracks, the experiment uses ThreeJs, GLSL, and Web Audio API",
+  "pageImage": "/static/dying-soul.jpg",
+  "tags": [
+    "threejs",
+    "abstract",
+    "glsl",
+    "audio-viz"
+  ]
+}

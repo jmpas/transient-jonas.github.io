@@ -8,7 +8,7 @@ import textEffect from '../styles/text-effect'
 
 const metaData = {
   title: 'Nipher - Experiments',
-  description: 'Creative code experiments',
+  description: 'Creative coding experiments',
   url: 'https://nipher.io/experiments'
 }
 
@@ -19,8 +19,8 @@ const ExperimentsPage = ({ experiments }) => (
     </PrimaryTitle>
     {
       experiments.length > 1
-        ? <Grid className='experiments-page'>{experiments.map((experiment, i) => <ExperimentItem key={i} {...experiment} />)}</Grid>
-        : <ExperimentItem {...experiments[0]} type={'loner'} />
+        ? <Grid className='experiments-page' type={"experiments"}>{experiments.map((experiment, i) => <ExperimentItem key={i} {...experiment} />)}</Grid>
+        : experiments.map((experiment, i) => <ExperimentItem key={i} {...experiment} type={'loner'} />)
     }
     <style jsx>{styles}</style>
     <style jsx>{textEffect}</style>

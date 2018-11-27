@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nipher - Dying Soul</title>
+  <meta name='description' content="A 3D sphere reacting realtime to one of Roly Porter's tracks, the experiment uses ThreeJs, GLSL, and Web Audio API" />
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nipher_jonas" />
+  <meta name="twitter:title" content="Nipher - Dying Soul" />
+  <meta name="twitter:description" content="A 3D sphere reacting realtime to one of Roly Porter's tracks, the experiment uses ThreeJs, GLSL, and Web Audio API" />
+  <meta property="twitter:image:src" content="/static/dying-soul.png" />
+
+  <meta property="fb:admins" content="100001388969005" />
+  <meta property="og:url" content="http://nipher.io/static/dying-soul" />
+  <meta property="og:title" content="Nipher - Dying Soul" />
+  <meta property="og:image" content="/static/dying-soul.png" />
+  <meta property="og:description" content="A 3D sphere reacting realtime to one of Roly Porter's tracks, the experiment uses ThreeJs, GLSL, and Web Audio API" />
+  <meta property="og:site_name" content="nipher" />
+
+  <meta name="google-site-verification" content="d9Yf-wvazE53l5r9utc7O68jw0ynDML0gaw38oBu6RI" />
+  <meta itemProp="name" content="Dying Soul" />
+  <meta itemProp="description" content="A 3D sphere reacting realtime to one of Roly Porter's tracks, the experiment uses ThreeJs, GLSL, and Web Audio API" />
+  <meta itemProp="image" content="/static/dying-soul.png" />
+
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/static/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/static/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/static/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/static/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/static/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/static/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/static/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon-180x180.png" />
+  <link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="/static/android-chrome-192x192.png" sizes="192x192" />
+  <meta name="msapplication-square70x70logo" content="/static/smalltile.png" />
+  <meta name="msapplication-square150x150logo" content="/static/mediumtile.png" />
+  <meta name="msapplication-square310x310logo" content="/static/largetile.png" />
+</head>
+<style>
+  h1 {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+    font-size: 28px;
+    color: #222;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+  }
+
+  h2 {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+    font-size: 24px;
+    color: #222;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+  }
+
+  h3 {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    color: #222;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+  }
+
+  .hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hint.visible {
+    animation: ease-out 2.5s infinite alternate blinkEffect;
+  }
+
+  .title {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .credit {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+  }
+
+  .visible {
+    opacity: 1;
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+  }
+
+  .hidden {
+    opacity: 0;
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+  }
+
+  @keyframes blinkEffect {
+    0% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
+</style>
+<script>
+  document.addEventListener('click', () => {
+    const hint = document.querySelector('.hint')
+    hint.classList.remove('visible')
+    hint.classList.add('hidden')
+    setTimeout(() => {
+      const title = document.querySelector('.title')
+      const credit = document.querySelector('.credit')
+      title.classList.remove('visible')
+      title.classList.add('hidden')
+      credit.classList.remove('hidden')
+      credit.classList.add('visible')
+    }, 2000)
+  })
+</script>
+<body>
+  <script src="bundle.js"></script>
+  <h1 class="title visible">Dying Soul</h3>
+  <h2 class="hint visible">click anywhere to start</h3>
+
+  <h3 class="credit hidden">♫ Roly Porter- Blind Blackening</h3>
+</body>
+</html>

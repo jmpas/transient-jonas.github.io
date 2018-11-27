@@ -8,8 +8,8 @@ import PostTag from './post-tag'
 import styles from './experiment-item.styles'
 import fadeIn from '../styles/fade-in'
 
-const ExperimentItem = ({ title, slug, description, date, tags = [], dateFormatted, pageImage, type }) => (
-  <Link href={`/experiment/${slug}`}>
+const ExperimentItem = ({ title, url, description, date, tags = [], dateFormatted, pageImage, type }) => (
+  <Link href={url}>
     <article className='experiment-item fade-in' style={type === 'loner' ? { maxWidth: 350 } : {}} itemType='http://schema.org/CreativeWork'>
       <div className='experiment-image'>
         <img itemProp='image' src={pageImage} alt='Dark Crystal visual experiment'></img>
