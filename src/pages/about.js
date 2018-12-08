@@ -62,7 +62,7 @@ const About = () => (
           <br />
           <Paragraph>Fingerprint:</Paragraph>
           <br />
-          <Paragraph><code>3055 2FFF 8CE5 A81B 84E4  D436 36D6 ADCB A7FE 1C8F</code></Paragraph>
+          <Paragraph><code>CBE5 7F72 7E16 A530 D7C6  7661 5F83 C5F9 CD93 37CA</code></Paragraph>
         </div>
       </div>
       <ProfilePicture />
