@@ -43,6 +43,10 @@
   <meta name="msapplication-square310x310logo" content="/static/largetile.png" />
 </head>
 <style>
+  audio {
+    display: none;
+  }
+
   h1 {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
     font-size: 28px;
@@ -72,6 +76,7 @@
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
   }
 
   .hint.visible {
@@ -119,6 +124,7 @@
     const hint = document.querySelector('.hint')
     hint.classList.remove('visible')
     hint.classList.add('hidden')
+
     setTimeout(() => {
       const title = document.querySelector('.title')
       const credit = document.querySelector('.credit')
@@ -127,9 +133,13 @@
       credit.classList.remove('hidden')
       credit.classList.add('visible')
     }, 2000)
+
+    const track = document.querySelector('#track')
+    track.play()
   })
 </script>
 <body>
+  <audio id="track" src="roly-porter-blind-blackening.mp3" loop controls></audio>
   <script src="bundle.js"></script>
   <h1 class="title visible">Dying Soul</h3>
   <h2 class="hint visible">click anywhere to start</h3>
