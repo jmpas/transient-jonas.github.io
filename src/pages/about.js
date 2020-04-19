@@ -1,68 +1,74 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
-const ProfilePicture = dynamic(import('../components/profile-picture'))
+const ProfilePicture = dynamic(import("../components/profile-picture"));
 
-import Page from '../layouts/main'
-import PrimaryTitle from '../components/primary-title'
-import Paragraph from '../components/paragraph'
+import Page from "../layouts/main";
+import PrimaryTitle from "../components/primary-title";
+import Paragraph from "../components/paragraph";
 
-import styles from './about.styles'
-import textEffect from '../styles/text-effect'
-import fadeIn from '../styles/fade-in'
+import styles from "./about.styles";
+import textEffect from "../styles/text-effect";
+import fadeIn from "../styles/fade-in";
 
 const metaData = {
-  title: 'Nipher - Contact',
-  description: 'Web developer, amateur photographer, dreaming man',
-  url: 'https://nipher.io/about'
-}
+  title: "Nipher - Contact",
+  description: "Web developer, amateur photographer, dreaming man",
+  url: "https://nipher.io/about",
+};
 
 const About = () => (
-  <Page meta={metaData} logoModifier='big'>
-    <div className='about-page'>
-      <div className='intro-text'>
-        <div className='main-intro'>
-          <PrimaryTitle>Hi, I'm Jonas</PrimaryTitle>
-          <PrimaryTitle><span className='text-effect'>I unfold ideas into code</span></PrimaryTitle>
-          <Paragraph>in case you like labels, I'm listing a few of them that would suit me well, like&hellip;</Paragraph>
+  <Page meta={metaData} logoModifier="big">
+    <div className="about-page">
+      <div className="intro-text">
+        <div className="about-intro">
+          <PrimaryTitle>
+            <span className="text-effect">Hi, I'm Jonas </span>
+          </PrimaryTitle>
+          <Paragraph>
+            I work as a tech consultant at{" "}
+            <a href="https://www.0x.se/">
+              <code>0+X</code>
+            </a>
+            , a technology company offering expert consultancy to companies in
+            Scandinavia.
+          </Paragraph>
           <br />
-          <Paragraph>- software engineer</Paragraph>
-          <Paragraph>- web developer</Paragraph>
-          <Paragraph>- amateur creative coder</Paragraph>
-          <Paragraph>- traveller</Paragraph>
-          <Paragraph>- amateur photographer</Paragraph>
-          <Paragraph>- vegan</Paragraph>
-          <Paragraph>- earthling</Paragraph>
-        </div>
-        <div className='about-intro'>
-          <PrimaryTitle>I like cold weather</PrimaryTitle>
-          <PrimaryTitle>and&hellip;</PrimaryTitle>
-          <Paragraph>I work as a Senior Front-end developer at <a href='https://www.0x.se/'><code>0+X</code></a>, a technology company offering expert consultancy to companies in Scandinavia.</Paragraph>
+          <Paragraph>
+            Throughout my professional career I've been working with web
+            technologies always with deeply involvement on the creative process,
+            providing trainings, workshops and team/organizational dynamics
+            which empower us to flow with productivity and grow together in the
+            process.
+          </Paragraph>
           <br />
-          <Paragraph>My main focus throughout my career has been web technologies, software architecture development for custom needs and also collaborating with designers on the creative process.</Paragraph>
+          <Paragraph>
+            I'm also available for individual mentoring sessions.
+          </Paragraph>
           <br />
-          <Paragraph> If you want to know more about me or get in touch:</Paragraph>
+          <Paragraph> Feel free to get in touch through</Paragraph>
           <br />
-          <div className='links fade-in'>
-            <a href='https://twitter.com/nipher_jonas'>twitter </a>
-            /
-            <a href='https://github.com/nipher'> github </a>
-            /
-            <a href='https://unsplash.com/@nipher'> unsplash </a>
-            /
-            <a href='https://instagram.com/nipher_jonas'> instagram </a>
-            /
-            <a href='https://www.linkedin.com/in/jonasmendes'> linkedin </a>
-            /
-            <a href='mailto:jonas@nipher.io'> e-mail</a>
+          <div className="links fade-in">
+            <a href="https://twitter.com/nipher_jonas">twitter </a>|
+            <a href="https://github.com/nipher"> github </a>|
+            <a href="https://unsplash.com/@nipher"> unsplash </a>|
+            <a href="https://instagram.com/nipher_jonas"> instagram </a>|
+            <a href="https://www.linkedin.com/in/jonasmendes"> linkedin </a>|
+            <a href="mailto:jonas@nipher.io"> e-mail</a>
           </div>
           <br />
           <Paragraph>GPG Public Key:</Paragraph>
           <br />
-          <Paragraph><a href='/static/nipher-public-key.asc'><code>get_key</code></a></Paragraph>
+          <Paragraph>
+            <a href="/static/nipher-public-key.asc">
+              <code>get_key</code>
+            </a>
+          </Paragraph>
           <br />
           <Paragraph>Fingerprint:</Paragraph>
           <br />
-          <Paragraph><code>CBE5 7F72 7E16 A530 D7C6  7661 5F83 C5F9 CD93 37CA</code></Paragraph>
+          <Paragraph>
+            <code>CBE5 7F72 7E16 A530 D7C6 7661 5F83 C5F9 CD93 37CA</code>
+          </Paragraph>
         </div>
       </div>
       <ProfilePicture />
@@ -71,6 +77,6 @@ const About = () => (
       <style jsx>{fadeIn}</style>
     </div>
   </Page>
-)
+);
 
-export default About
+export default About;

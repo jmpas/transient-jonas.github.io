@@ -1,36 +1,37 @@
-import css from 'styled-jsx/css'
-import { medium, big, small } from '../styles/variables/layout-spacing'
+import css from "styled-jsx/css";
+import { medium, big, small } from "../styles/variables/layout-spacing";
 
 export default css`
-.about-page {
-  padding: 0 0 0 150px;
-}
+  .about-page {
+    padding: 0 0 0 250px;
+  }
 
-.intro-text {
-  display: flex;
-}
-
-.main-intro {
-  flex-basis: 50%;
-  padding: 0 ${medium}px 0 0;
-}
-
-.about-intro {
-  flex-basis: 50%;
-}
-
-@media (max-width: 650px) {
   .intro-text {
-    flex-direction: column;
+    display: flex;
   }
 
   .main-intro {
-    padding: 0 0 ${medium}px 0;
+    flex-basis: 50%;
+    padding: 0 ${medium}px 0 0;
   }
-}
 
-@media (max-width: 500px) {
-  .about-page {
-    padding: ${medium}px 0px;
+  .about-intro {
+    max-width: 600px;
   }
-}`
+
+  @media (max-width: 650px) {
+    .intro-text {
+      flex-direction: column;
+    }
+
+    .main-intro {
+      padding: 0 0 ${medium}px 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .about-page {
+      padding: ${medium}px 0px;
+    }
+  }
+`;
