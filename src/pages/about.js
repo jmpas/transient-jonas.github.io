@@ -25,12 +25,11 @@ const About = () => (
             <span className="text-effect">Hi, I'm Jonas </span>
           </PrimaryTitle>
           <Paragraph>
-            I work as a tech consultant at{" "}
+            I'm curently based in Stockholm and working as a tech consultant at{" "}
             <a href="https://www.0x.se/">
               <code>0+X</code>
             </a>
-            , a technology company offering expert consultancy to companies in
-            Scandinavia.
+            , a technology company offering expert consultancy in Scandinavia.
           </Paragraph>
           <br />
           <Paragraph>
