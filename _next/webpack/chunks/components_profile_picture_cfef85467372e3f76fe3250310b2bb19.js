@@ -1,6 +1,6 @@
 
         __NEXT_REGISTER_CHUNK('components_profile_picture_cfef85467372e3f76fe3250310b2bb19', function() {
-      webpackJsonp([11],{
+      webpackJsonp([7],{
 
 /***/ "./components/polygon.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
