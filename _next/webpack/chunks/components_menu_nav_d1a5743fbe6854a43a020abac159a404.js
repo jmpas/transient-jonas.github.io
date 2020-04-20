@@ -1,6 +1,6 @@
 
         __NEXT_REGISTER_CHUNK('components_menu_nav_d1a5743fbe6854a43a020abac159a404', function() {
-      webpackJsonp([6],{
+      webpackJsonp([5],{
 
 /***/ "./components/link.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {

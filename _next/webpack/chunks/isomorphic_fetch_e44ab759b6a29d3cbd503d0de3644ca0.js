@@ -1,6 +1,6 @@
 
         __NEXT_REGISTER_CHUNK('isomorphic_fetch_e44ab759b6a29d3cbd503d0de3644ca0', function() {
-      webpackJsonp([7],{
+      webpackJsonp([8],{
 
 /***/ "./node_modules/isomorphic-fetch/fetch-npm-browserify.js":
 /***/ (function(module, exports, __webpack_require__) {

@@ -3,7 +3,7 @@ import { medium, big, small } from "../styles/variables/layout-spacing";
 
 export default css`
   .about-page {
-    padding: 0 0 0 250px;
+    padding: 0 0 0 500px;
   }
 
   .intro-text {
