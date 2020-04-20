@@ -861,11 +861,11 @@ export default class extends Component {
         })}
         <picture>
           <source
-            srcSet="/static/profile.png"
+            srcSet="/static/profile_img.png"
             media="(min-width: 600px)"
           ></source>
           <img
-            src="/static/profile_small.png"
+            src="/static/profile_img_small.png"
             alt="Profile Picture"
             className={`${displayImg ? "visible" : ""}`}
           ></img>
