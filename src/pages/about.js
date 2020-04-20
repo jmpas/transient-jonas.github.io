@@ -34,29 +34,29 @@ const About = () => (
           </Paragraph>
           <br />
           <Paragraph>
-            Throughout my professional career I've been working with web
-            technologies always with deeply involvement on the creative process,
-            providing trainings, workshops and team/organizational dynamics
-            which empower us to flow with productivity and grow together in the
-            process.
+            During my professional career I've been working with web
+            technologies, always keeping myself involved in the creative and
+            strategic process, providing training, workshops and
+            team/organizational dynamics which empower us to flow with
+            productivity and grow together in the process.
           </Paragraph>
           <br />
           <Paragraph>
             I'm also available for individual mentoring sessions.
           </Paragraph>
           <br />
-          <Paragraph> Feel free to get in touch through</Paragraph>
+          <Paragraph>You can find me through these channels</Paragraph>
           <br />
           <div className="links fade-in">
-            <a href="https://twitter.com/nipher_jonas">twitter </a>|
+            <a href="mailto:jonas@nipher.io">e-mail </a>|
+            <a href="https://twitter.com/nipher_jonas"> twitter </a>|
             <a href="https://github.com/nipher"> github </a>|
-            <a href="https://unsplash.com/@nipher"> unsplash </a>|
             <a href="https://instagram.com/nipher_jonas"> instagram </a>|
             <a href="https://www.linkedin.com/in/jonasmendes"> linkedin </a>|
-            <a href="mailto:jonas@nipher.io"> e-mail</a>
+            <a href="https://unsplash.com/@nipher"> unsplash </a>
           </div>
           <br />
-          <Paragraph>GPG Public Key:</Paragraph>
+          <Paragraph>My GPG Public Key</Paragraph>
           <br />
           <Paragraph>
             <a href="/static/nipher-public-key.asc">
@@ -64,7 +64,7 @@ const About = () => (
             </a>
           </Paragraph>
           <br />
-          <Paragraph>Fingerprint:</Paragraph>
+          <Paragraph>Fingerprint</Paragraph>
           <br />
           <Paragraph>
             <code>CBE5 7F72 7E16 A530 D7C6 7661 5F83 C5F9 CD93 37CA</code>
