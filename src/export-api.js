@@ -27,7 +27,7 @@ async function exportPostApi() {
   const postsList = await getPostsList()
 
   const promises = postsList.map(async ({ slug }) => {
-    const res = await fetch(`http://localhost:3000/api/post/${slug}`)
+    const res = await fetch(`http://localhost:3000/api/post/${slug.toLowerCase()}`)
     const post = await res.text()
 
     await write(`./out/api/post/${slug}.json`, post)
