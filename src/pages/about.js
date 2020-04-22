@@ -19,6 +19,9 @@ const metaData = {
 const About = () => (
   <Page meta={metaData} logoModifier="big">
     <div className="about-page">
+      <div className="profile-picture">
+        <ProfilePicture />
+      </div>
       <div className="intro-text">
         <div className="about-intro">
           <PrimaryTitle>
@@ -58,19 +61,12 @@ const About = () => (
           <Paragraph>My GPG Public Key</Paragraph>
           <br />
           <Paragraph>
-            <a href="/static/nipher-public-key.asc">
-              <code>get_key</code>
-            </a>
-          </Paragraph>
-          <br />
-          <Paragraph>Fingerprint</Paragraph>
-          <br />
-          <Paragraph>
+          <a href="https://keyserver.ubuntu.com/pks/lookup?search=0x5f83c5f9cd9337ca&fingerprint=on&op=index">
             <code>CBE5 7F72 7E16 A530 D7C6 7661 5F83 C5F9 CD93 37CA</code>
+            </a>
           </Paragraph>
         </div>
       </div>
-      <ProfilePicture />
       <style jsx>{styles}</style>
       <style jsx>{textEffect}</style>
       <style jsx>{fadeIn}</style>
