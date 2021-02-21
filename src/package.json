@@ -7,6 +7,9 @@
     "start": "next start",
     "export": "next export"
   },
+  "engine": {
+    "node" : "10.x.x"
+  },
   "main": "index.js",
   "author": "nipher <jonas@nipher.io>",
   "license": "MIT",

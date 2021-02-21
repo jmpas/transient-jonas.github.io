@@ -28,19 +28,23 @@ const About = () => (
             <span className="text-effect">Hi, I'm Jonas </span>
           </PrimaryTitle>
           <Paragraph>
-            I'm curently based in Stockholm and working as a tech consultant at{" "}
-            <a href="https://www.0x.se/">
-              <code>0+X</code>
+            I'm curently based in Stockholm and working as a Full Stack
+            Developer at{" "}
+            <a href="https://www.29k.org/">
+              <code>29k</code>
             </a>
-            , a technology company offering expert consultancy in Scandinavia.
+            , a non-profit organization building a platform where psychology and
+            technology meets through personal growth.
           </Paragraph>
           <br />
           <Paragraph>
-            During my professional career I've been working with web
-            technologies, always keeping myself involved in the creative and
-            strategic process, providing training, workshops and
-            team/organizational dynamics which empower us to flow with
-            productivity and grow together in the process.
+            During my life I've been working with web technologies, always
+            keeping myself involved in the creative, strategic and
+            organizational processes, while also exploring, together, the
+            mystery and art that is to be an organization where the synthesis of
+            ideas and perspectives are the drive for growth and creativity,
+            empowering everyone to flow with understading in the process of
+            co-creating something meaninful in this world.
           </Paragraph>
           <br />
           <Paragraph>
@@ -51,7 +55,6 @@ const About = () => (
           <br />
           <div className="links fade-in">
             <a href="mailto:jonas@nipher.io">e-mail </a>|
-            <a href="https://twitter.com/nipher_jonas"> twitter </a>|
             <a href="https://github.com/nipher"> github </a>|
             <a href="https://instagram.com/nipher_jonas"> instagram </a>|
             <a href="https://www.linkedin.com/in/jonasmendes"> linkedin </a>|
@@ -61,8 +64,8 @@ const About = () => (
           <Paragraph>My GPG Public Key</Paragraph>
           <br />
           <Paragraph>
-          <a href="https://keyserver.ubuntu.com/pks/lookup?search=0x5f83c5f9cd9337ca&fingerprint=on&op=index">
-            <code>CBE5 7F72 7E16 A530 D7C6 7661 5F83 C5F9 CD93 37CA</code>
+            <a href="https://keyserver.ubuntu.com/pks/lookup?search=0x5f83c5f9cd9337ca&fingerprint=on&op=index">
+              <code>CBE5 7F72 7E16 A530 D7C6 7661 5F83 C5F9 CD93 37CA</code>
             </a>
           </Paragraph>
         </div>
